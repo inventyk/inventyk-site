@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { AISolutions, Process, Resources, Tools, ExtendedServices, TrainingExpansion, DeliveryPreview } from "./ExtendedPages";
 import { BrowserRouter, Routes, Route, NavLink, Link, useLocation } from "react-router-dom";
 import {
   ArrowUpRight, Menu, X, Bot, Cloud, Database, Code2, Workflow, Sparkles,
@@ -24,7 +25,7 @@ function ScrollToTop() {
 function Header() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
-  const links = [["Home", "/"], ["Services", "/services"], ["Pricing", "/pricing"], ["Training", "/training"]];
+  const links = [["Home", "/"], ["Services", "/services"], ["AI Solutions", "/ai-solutions"], ["Process", "/process"], ["Learn & Build", "/training"], ["Resources", "/resources"], ["Pricing", "/pricing"]];
   return <>
     <div className="top-strip"><span className="online-dot" /> AI-POWERED DIGITAL SOLUTIONS &nbsp;·&nbsp; SOFTWARE &nbsp;·&nbsp; TECH TRAINING <span className="strip-right">PUNE, INDIA</span></div>
     <header className="header">
@@ -54,7 +55,7 @@ function Footer() {
           <a href={SOCIAL.email} aria-label="Email Inventyk"><Mail /></a>
         </div>
       </div>
-      <div className="footer-col"><b>Explore</b><Link to="/">Home</Link><Link to="/services">Services</Link><Link to="/pricing">Pricing Plans</Link><Link to="/training">Training & Internships</Link></div>
+      <div className="footer-col"><b>Explore</b><Link to="/">Home</Link><Link to="/services">Services</Link><Link to="/ai-solutions">AI Solutions</Link><Link to="/process">How We Work</Link><Link to="/pricing">Pricing Plans</Link><Link to="/training">Learn & Build</Link><Link to="/resources">Resources</Link><Link to="/tools">Engineering Tools</Link></div>
       <div className="footer-col"><b>Get in touch</b><a href={SOCIAL.email}>inventyk@gmail.com</a><a href={SOCIAL.telegram} target="_blank" rel="noreferrer">Message on Telegram</a><span className="location"><MapPin size={14} /> Pune - 411048, India</span></div>
     </div>
     <div className="footer-bottom"><span>© {new Date().getFullYear()} Inventyk. All rights reserved.</span><span>INNOVATING THE FUTURE, TOGETHER.</span></div>
@@ -126,6 +127,7 @@ function Home() {
       <div className="section-heading"><SectionLabel>CLIENT FEEDBACK</SectionLabel><h2>What Our <em>Clients Say</em></h2><p>Hear from businesses who have partnered with Inventyk and experienced transformative results.</p></div>
       <div className="testimonial-grid">{testimonials.map(t=><article className="testimonial-card" key={t.name}><Quote className="quote-icon"/><p>“{t.quote}”</p><div className="testimonial-person">{t.image ? <img src={t.image} alt={"Avatar of " + t.name}/> : <div className="avatar-placeholder">{t.name.split(" ").map(x=>x[0]).join("")}</div>}<div><b>{t.name}</b><span>{t.role}</span></div></div></article>)}</div>
     </section>
+    <DeliveryPreview/>
     <CTA title="Ready to Transform Your Business?" text="Let's discuss how Inventyk can help you achieve new heights of success with our expert services and training." primary="Schedule a Consultation" href="/pricing#contact-us-section"/>
   </>;
 }
@@ -149,6 +151,7 @@ function Services() {
       <div className="service-image-card"><img src={OLD + "/_next/image?url=%2Fimages%2Fservices.png&w=1200&q=75"} alt="AI-Assisted Development"/><span>AI-ASSISTED WEB & MOBILE DEVELOPMENT</span></div>
     </section>
     <section className="service-visual section-wrap"><img src={OLD + "/_next/image?url=%2Fimages%2Fservices2.png&w=1200&q=75"} alt="Core Services Overview"/><div><SectionLabel>BUILT AROUND YOUR REQUIREMENTS</SectionLabel><h2>Technology that works<br/><em>for your business.</em></h2><p>Partner with us to leverage our expertise and drive your business forward with cutting-edge technology solutions.</p></div></section>
+    <ExtendedServices/>
     <CTA title="Have a Project in Mind?" text="Let's discuss your requirements and how our expertise can bring your vision to life." primary="Discuss Your Project"/>
   </>;
 }
@@ -196,6 +199,7 @@ function Training() {
       <article className="training-feature"><div className="training-feature-image"><img src={OLD + "/_next/image?url=%2Fimages%2Ftraining.png&w=1200&q=75"} alt="Industrial Training & Internship"/></div><div className="training-feature-copy"><SectionLabel>LEARN BY DOING</SectionLabel><h2>Industrial <em>Training</em></h2><p>Our industrial training programs are designed to bridge the gap between academic learning and industry demands. Get hands-on experience with live projects and mentorship from seasoned professionals.</p><a className="text-link-lime" href={SOCIAL.email + "?subject=Industrial%20Training%20Inquiry"}>Enquire about training <ArrowUpRight size={16}/></a></div></article>
       <article className="training-feature internship-feature"><div className="training-feature-copy"><SectionLabel>BUILD REAL-WORLD EXPERIENCE</SectionLabel><h2>Internship <em>Opportunities</em></h2><p>Kickstart your career with an Inventyk internship. Work on cutting-edge projects, contribute to real products, and learn from the best in the industry. We offer internships across various domains.</p><a className="text-link-lime" href={SOCIAL.email + "?subject=Internship%20Inquiry"}>Ask about internships <ArrowUpRight size={16}/></a></div><div className="internship-visual"><BriefcaseBusiness/><span>LEARN</span><i/><span>CONTRIBUTE</span><i/><span>GROW</span></div></article>
     </section>
+    <TrainingExpansion/>
     <CTA title="Ready to Advance Your Career?" text="Join our programs to acquire in-demand skills and open doors to exciting career paths in the tech industry." primary="Training Inquiries: Email Us" href={SOCIAL.email}/>
   </>;
 }
@@ -203,10 +207,10 @@ function Training() {
 function AppShell() {
   const location = useLocation();
   useEffect(() => {
-    const titles = { "/":"Home | INVENTYK", "/services":"Services | Inventyk", "/pricing":"Pricing Plans | Inventyk", "/training":"Training & Internships | Inventyk" };
+    const titles = { "/":"Home | INVENTYK", "/services":"Services | Inventyk", "/pricing":"Pricing Plans | Inventyk", "/training":"Training & Internships | Inventyk", "/ai-solutions":"AI Solutions | Inventyk", "/process":"Delivery Process | Inventyk", "/resources":"Engineering Resources | Inventyk", "/tools":"Engineering Tools | Inventyk" };
     document.title = titles[location.pathname] || "INVENTYK | AI Powered Solution & Services";
   }, [location.pathname]);
-  return <div className="app"><Header/><main><Routes><Route path="/" element={<Home/>}/><Route path="/services" element={<Services/>}/><Route path="/pricing" element={<Pricing/>}/><Route path="/training" element={<Training/>}/><Route path="*" element={<Home/>}/></Routes></main><Footer/></div>;
+  return <div className="app"><Header/><main><Routes><Route path="/" element={<Home/>}/><Route path="/services" element={<Services/>}/><Route path="/pricing" element={<Pricing/>}/><Route path="/training" element={<Training/>}/><Route path="/ai-solutions" element={<AISolutions/>}/><Route path="/process" element={<Process/>}/><Route path="/resources" element={<Resources/>}/><Route path="/tools" element={<Tools/>}/><Route path="*" element={<Home/>}/></Routes></main><Footer/></div>;
 }
 
 export default function App() {
