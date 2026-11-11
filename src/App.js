@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { AISolutions, Process, Resources, Tools, ExtendedServices, TrainingExpansion, DeliveryPreview } from "./ExtendedPages";
-import { BrowserRouter, Routes, Route, NavLink, Link, useLocation } from "react-router-dom";
+import { AISolutions, Process, Resources, Tools, ExtendedServices, TrainingExpansion, DeliveryPreview, FAQSection2, siteFaqs } from "./ExtendedPages";
+import { BrowserRouter, Routes, Route, NavLink, Link, Navigate, useLocation } from "react-router-dom";
 import {
   ArrowUpRight, Menu, X, Bot, Cloud, Database, Code2, Workflow, Sparkles,
   Smartphone, LineChart, Lightbulb, Mail, Send, Linkedin,
@@ -25,7 +25,7 @@ function ScrollToTop() {
 function Header() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
-  const links = [["Home", "/"], ["Services", "/services"], ["AI Solutions", "/ai-solutions"], ["Process", "/process"], ["Learn & Build", "/training"], ["Resources", "/resources"], ["Pricing", "/pricing"]];
+  const links = [["Home", "/"], ["Services", "/services"], ["AI Solutions", "/ai-solutions"], ["Process", "/process"], ["Learn & Build", "/training"], ["Resources", "/resources"], ["Tools", "/tools"]];
   return <>
     <div className="top-strip"><span className="online-dot" /> AI-POWERED DIGITAL SOLUTIONS &nbsp;·&nbsp; SOFTWARE &nbsp;·&nbsp; TECH TRAINING <span className="strip-right">PUNE, INDIA</span></div>
     <header className="header">
@@ -55,7 +55,7 @@ function Footer() {
           <a href={SOCIAL.email} aria-label="Email Inventyk"><Mail /></a>
         </div>
       </div>
-      <div className="footer-col"><b>Explore</b><Link to="/">Home</Link><Link to="/services">Services</Link><Link to="/ai-solutions">AI Solutions</Link><Link to="/process">How We Work</Link><Link to="/pricing">Pricing Plans</Link><Link to="/training">Learn & Build</Link><Link to="/resources">Resources</Link><Link to="/tools">Engineering Tools</Link></div>
+      <div className="footer-col"><b>Explore</b><Link to="/">Home</Link><Link to="/services">Services</Link><Link to="/ai-solutions">AI Solutions</Link><Link to="/process">How We Work</Link><Link to="/tools">Engineering Tools</Link><Link to="/training">Learn & Build</Link><Link to="/resources">Resources</Link><Link to="/tools">Engineering Tools</Link></div>
       <div className="footer-col"><b>Get in touch</b><a href={SOCIAL.email}>inventyk@gmail.com</a><a href={SOCIAL.telegram} target="_blank" rel="noreferrer">Message on Telegram</a><span className="location"><MapPin size={14} /> Pune - 411048, India</span></div>
     </div>
     <div className="footer-bottom"><span>© {new Date().getFullYear()} Inventyk. All rights reserved.</span><span>INNOVATING THE FUTURE, TOGETHER.</span></div>
@@ -97,7 +97,7 @@ function Home() {
         <div className="eyebrow"><span /> TECHNOLOGY THAT MOVES YOU FORWARD</div>
         <h1>Innovate.<br/><em>Integrate.</em><br/>Inspire.</h1>
         <p>Inventyk is your trusted partner for AI-powered digital solutions, bespoke software development, and expert tech training. We also offer hands-on training programs to help you master the latest technologies and boost your career. We turn complex challenges into growth opportunities.</p>
-        <div className="hero-actions"><Link className="button button-lime" to="/services">Discover Our Services <ArrowUpRight size={18}/></Link><Link className="button button-ghost" to="/pricing">View Pricing & Plans <ChevronRight size={17}/></Link></div>
+        <div className="hero-actions"><Link className="button button-lime" to="/services">Discover Our Services <ArrowUpRight size={18}/></Link><Link className="button button-ghost" to="/process">How We Work <ChevronRight size={17}/></Link></div>
         <div className="hero-links"><Link to="/training">Explore Training <ArrowUpRight size={14}/></Link><span>AI-POWERED DIGITAL SOLUTIONS</span></div>
       </div>
       <div className="hero-art" aria-label="Inventyk technology illustration">
@@ -152,30 +152,8 @@ function Services() {
     </section>
     <section className="service-visual section-wrap"><img src={OLD + "/_next/image?url=%2Fimages%2Fservices2.png&w=1200&q=75"} alt="Core Services Overview"/><div><SectionLabel>BUILT AROUND YOUR REQUIREMENTS</SectionLabel><h2>Technology that works<br/><em>for your business.</em></h2><p>Partner with us to leverage our expertise and drive your business forward with cutting-edge technology solutions.</p></div></section>
     <ExtendedServices/>
+    <FAQSection2 title="Software development questions, answered." items={siteFaqs.services}/>
     <CTA title="Have a Project in Mind?" text="Let's discuss your requirements and how our expertise can bring your vision to life." primary="Discuss Your Project"/>
-  </>;
-}
-
-const plans = [
-  { name:"Starter", price:"₹9,999", items:["1 Page Website / Landing Page","Mobile Responsive Design","Contact Form","1 Design Revision","Basic SEO Setup","7 Days Free Support"], action:"Get Started" },
-  { name:"Professional", price:"₹24,999", popular:true, items:["Up to 5 Pages Website","Custom Mobile-Responsive Design","Admin Panel (Basic)","Contact + Feedback Forms","2 Design Revisions","Basic Backend & Database Setup","15 Days Support","Basic SEO + Speed Optimization","1 Year Domain & Hosting"], action:"Choose Professional" },
-  { name:"Enterprise", price:"₹59,999", items:["Up to 10 Pages Dynamic Website","Modern UI/UX Design","Full Backend Development","Advanced Admin Dashboard","Database + Analytics Integration","3 Design Revisions","Advanced SEO & Speed Optimization","AI Chatbot (Basic)","Payment Gateway Integration","1 Year Domain & Hosting","45 Days Support"], action:"Go with Enterprise" },
-  { name:"Elite", price:"₹109,999", items:["Custom Web App / SaaS Platform","Full Stack Development (Frontend + Backend)","Custom AI Feature Integration","Advanced Admin Panel + Role-Based Access","Payment & Subscription Systems","API Integrations (3rd Party)","5 Design Revisions","2 Months Priority Support","Complete SEO & Analytics Setup","Custom Hosting & Deployment Strategy"], action:"Go with Elite" }
-];
-
-function Pricing() {
-  return <>
-    <PageIntro eyebrow="CLEAR & TRANSPARENT" title="Our Pricing Plans" description="Affordable and transparent pricing to help you innovate and grow. Choose a plan that fits your business needs or contact us for a custom quote."/>
-    <section className="pricing-section section-wrap">
-      <div className="pricing-grid">{plans.map((p,i)=><article className={p.popular?"pricing-card pricing-popular":"pricing-card"} key={p.name}>
-        {p.popular && <div className="popular-label">MOST POPULAR</div>}
-        <div className="plan-number">0{i+1} / WEBSITE & SOFTWARE</div><h2>{p.name}</h2><div className="plan-price">{p.price}<small> / project</small></div>
-        <ul>{p.items.map(x=><li key={x}><Check size={15}/>{x}</li>)}</ul>
-        <a className={p.popular?"button button-lime plan-button":"button button-outline plan-button"} href={"mailto:inventyk@gmail.com?subject="+encodeURIComponent("INVENTYK "+p.name+" Plan Inquiry")}>{p.action}<ArrowUpRight size={17}/></a>
-      </article>)}</div>
-      <p className="pricing-note">Need something different? The original plans note that you can contact Inventyk for a custom quote.</p>
-    </section>
-    <CTA title="Let's Find the Right Plan." text="Share your business needs and project requirements. We can discuss a plan that fits your goals." primary="Mail us" href={SOCIAL.email}/>
   </>;
 }
 
@@ -200,6 +178,7 @@ function Training() {
       <article className="training-feature internship-feature"><div className="training-feature-copy"><SectionLabel>BUILD REAL-WORLD EXPERIENCE</SectionLabel><h2>Internship <em>Opportunities</em></h2><p>Kickstart your career with an Inventyk internship. Work on cutting-edge projects, contribute to real products, and learn from the best in the industry. We offer internships across various domains.</p><a className="text-link-lime" href={SOCIAL.email + "?subject=Internship%20Inquiry"}>Ask about internships <ArrowUpRight size={16}/></a></div><div className="internship-visual"><BriefcaseBusiness/><span>LEARN</span><i/><span>CONTRIBUTE</span><i/><span>GROW</span></div></article>
     </section>
     <TrainingExpansion/>
+    <FAQSection2 title="Training and mentorship questions." items={siteFaqs.training}/>
     <CTA title="Ready to Advance Your Career?" text="Join our programs to acquire in-demand skills and open doors to exciting career paths in the tech industry." primary="Training Inquiries: Email Us" href={SOCIAL.email}/>
   </>;
 }
@@ -207,10 +186,72 @@ function Training() {
 function AppShell() {
   const location = useLocation();
   useEffect(() => {
-    const titles = { "/":"Home | INVENTYK", "/services":"Services | Inventyk", "/pricing":"Pricing Plans | Inventyk", "/training":"Training & Internships | Inventyk", "/ai-solutions":"AI Solutions | Inventyk", "/process":"Delivery Process | Inventyk", "/resources":"Engineering Resources | Inventyk", "/tools":"Engineering Tools | Inventyk" };
-    document.title = titles[location.pathname] || "INVENTYK | AI Powered Solution & Services";
+    const siteUrl = "https://inventyk-beta.vercel.app";
+    const pages = {
+      "/": ["INVENTYK | AI Software Development, Automation & Training","INVENTYK designs custom software, AI agents, intelligent automation, web and mobile applications, and practical technology training for businesses and learners.","INVENTYK, software development India, AI development, AI agents, workflow automation, web applications, mobile apps, technology training"],
+      "/services": ["Software Development Services | INVENTYK","Custom web applications, mobile apps, e-commerce, API integrations, cloud and DevOps, testing, QA and technical consulting.","custom software development, web application development, mobile app development, e-commerce, API integration, cloud DevOps, software testing"],
+      "/ai-solutions": ["AI Development & Automation Solutions | INVENTYK","AI agents, RAG knowledge assistants, chatbots, voice AI, document processing, workflow automation and AI evaluation.","AI development, AI agents, RAG, knowledge assistants, chatbots, voice AI, document AI, agentic automation"],
+      "/process": ["Software Engineering & Delivery Process | INVENTYK","How INVENTYK scopes, architects, builds, tests and deploys software through transparent milestones, security checks, documentation and support.","software delivery process, technical discovery, software architecture, QA testing, CI CD, deployment"],
+      "/training": ["Technology Training & Full-Stack Mentorship | INVENTYK","Technology training in Python, Java, Flutter and data structures, plus full-stack learning, final-year project mentorship and interview preparation.","technology training India, Python training, Java full stack, Flutter, project mentorship, GenAI training"],
+      "/resources": ["Software Engineering & AI Resources | INVENTYK","Practical guides on software project planning, AI architecture, RAG, databases, web development and technical learning.","software engineering guides, AI architecture, RAG, PostgreSQL SaaS, MERN, project planning"],
+      "/tools": ["Free Software Planning & Architecture Tools | INVENTYK","Browser-based tools to draft a software project brief, compare technology stack options and review architecture risks.","project scope tool, technology stack matcher, architecture checklist, project planning tools"]
+    };
+    const data = pages[location.pathname] || pages["/"];
+    const canonical = siteUrl + (location.pathname === "/" ? "/" : location.pathname.replace(/\/+$/, ""));
+    document.title = data[0];
+    const meta = (selector, key, value, attr) => {
+      let el = document.head.querySelector(selector);
+      if (!el) { el = document.createElement("meta"); el.setAttribute(attr, key); document.head.appendChild(el); }
+      el.setAttribute(key, value);
+    };
+    meta('meta[name="description"]',"name",data[1],"name");
+    meta('meta[name="keywords"]',"content",data[2],"name");
+    meta('meta[name="robots"]',"content","index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1","name");
+    meta('meta[name="googlebot"]',"content","index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1","name");
+    meta('meta[property="og:type"]',"content","website","property");
+    meta('meta[property="og:site_name"]',"content","INVENTYK","property");
+    meta('meta[property="og:title"]',"content",data[0],"property");
+    meta('meta[property="og:description"]',"content",data[1],"property");
+    meta('meta[property="og:url"]',"content",canonical,"property");
+    meta('meta[property="og:locale"]',"content","en_IN","property");
+    meta('meta[name="twitter:card"]',"content","summary","name");
+    meta('meta[name="twitter:title"]',"content",data[0],"name");
+    meta('meta[name="twitter:description"]',"content",data[1],"name");
+    let canonicalLink=document.head.querySelector('link[rel="canonical"]');
+    if(!canonicalLink){canonicalLink=document.createElement("link");canonicalLink.rel="canonical";document.head.appendChild(canonicalLink);}
+    canonicalLink.href=canonical;
+
+    const orgId=siteUrl+"/#organization";
+    const graph=[
+      {"@type":"Organization","@id":orgId,"name":"INVENTYK","url":siteUrl+"/","description":"INVENTYK is an AI and software solutions company focused on custom digital products, intelligent automation, software engineering and technology training.","email":"inventyk@gmail.com","logo":"https://inventyk.vercel.app/icons/inventyk-logo.svg","sameAs":["https://www.linkedin.com/in/inventyk-ai-powered-solution-102056367","https://www.instagram.com/inventyk_ai_powered_solution/","https://t.me/INVENTYK"],"knowsAbout":["Custom Software Development","Web Application Development","Mobile App Development","Artificial Intelligence","AI Agents","Retrieval-Augmented Generation","Business Process Automation","Cloud Architecture","DevOps","Software Testing","Technology Education"],"contactPoint":{"@type":"ContactPoint","contactType":"business inquiries","email":"inventyk@gmail.com","availableLanguage":["English","Hindi"]}},
+      {"@type":"WebSite","@id":siteUrl+"/#website","url":siteUrl+"/","name":"INVENTYK","inLanguage":"en-IN","publisher":{"@id":orgId}},
+      {"@type":"WebPage","@id":canonical+"#webpage","url":canonical,"name":data[0],"description":data[1],"inLanguage":"en-IN","isPartOf":{"@id":siteUrl+"/#website"},"about":{"@id":orgId}}
+    ];
+    if(location.pathname==="/services"||location.pathname==="/ai-solutions"){
+      graph.push({"@type":"Service","@id":canonical+"#service","name":location.pathname==="/ai-solutions"?"AI Development and Automation Solutions":"Software Development and Engineering Services","serviceType":location.pathname==="/ai-solutions"?"AI development, agents, knowledge assistants and workflow automation":"Custom software, web and mobile development, integrations, cloud and quality engineering","provider":{"@id":orgId},"areaServed":{"@type":"Country","name":"India"},"url":canonical,"description":data[1]});
+    }
+    if(location.pathname==="/training"){
+      graph.push({"@type":"ItemList","name":"INVENTYK Technology Training and Mentorship","itemListElement":["Python Programming","Data Structures","Flutter App Development","Java Full-Stack Development","Final-Year Project Mentorship","Interview and Career Preparation"].map((name,i)=>({"@type":"ListItem","position":i+1,"item":{"@type":"Course","name":name,"provider":{"@id":orgId},"url":canonical}}))});
+    }
+    const faqKey={"/services":"services","/ai-solutions":"ai","/training":"training","/process":"process","/resources":"resources","/tools":"tools"}[location.pathname];
+    if(faqKey&&siteFaqs[faqKey]){
+      graph.push({"@type":"FAQPage","@id":canonical+"#faq","mainEntity":siteFaqs[faqKey].map(q=>({"@type":"Question","name":q.question,"acceptedAnswer":{"@type":"Answer","text":q.answer}}))});
+    }
+    let ld=document.getElementById("seo-structured-data");
+    if(!ld){ld=document.createElement("script");ld.id="seo-structured-data";ld.type="application/ld+json";document.head.appendChild(ld);}
+    ld.textContent=JSON.stringify({"@context":"https://schema.org","@graph":graph});
   }, [location.pathname]);
-  return <div className="app"><Header/><main><Routes><Route path="/" element={<Home/>}/><Route path="/services" element={<Services/>}/><Route path="/pricing" element={<Pricing/>}/><Route path="/training" element={<Training/>}/><Route path="/ai-solutions" element={<AISolutions/>}/><Route path="/process" element={<Process/>}/><Route path="/resources" element={<Resources/>}/><Route path="/tools" element={<Tools/>}/><Route path="*" element={<Home/>}/></Routes></main><Footer/></div>;
+  return <div className="app"><Header/><main><Routes>
+    <Route path="/" element={<Home/>}/>
+    <Route path="/services" element={<Services/>}/>
+    <Route path="/training" element={<Training/>}/>
+    <Route path="/ai-solutions" element={<AISolutions/>}/>
+    <Route path="/process" element={<Process/>}/>
+    <Route path="/resources" element={<Resources/>}/>
+    <Route path="/tools" element={<Tools/>}/>
+    <Route path="/pricing" element={<Navigate to="/services" replace/>}/>
+    <Route path="*" element={<Home/>}/>
+  </Routes></main><Footer/></div>;
 }
 
 export default function App() {

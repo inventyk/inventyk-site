@@ -8,6 +8,48 @@ import {
 
 const EMAIL = "mailto:inventyk@gmail.com";
 
+export const siteFaqs = {
+  services: [
+    { question: "What types of software can INVENTYK develop?", answer: "INVENTYK works on business websites, full-stack web applications, mobile apps, SaaS platforms, e-commerce experiences, internal dashboards and API integrations. The scope and technology choices depend on each project's requirements." },
+    { question: "How does a custom software project begin?", answer: "A project begins with discovery: understanding users, business rules, integrations, data, constraints and measurable outcomes. Those findings are turned into an agreed scope, acceptance criteria and delivery milestones." },
+    { question: "Who owns the source code after delivery?", answer: "Source-code ownership, repository access, third-party licences and handover terms are agreed in the project scope and contract. The exact terms should be documented before development starts." }
+  ],
+  ai: [
+    { question: "What is an AI agent?", answer: "An AI agent is a software system that uses a model to interpret a goal, select from approved tools, perform steps and check results. Production agents need bounded permissions, validation, observability and human review for consequential actions." },
+    { question: "When should a business use RAG instead of fine-tuning?", answer: "Retrieval-augmented generation is usually a better starting point when answers must use changing company documents or cite source material. Fine-tuning is considered when a model needs to learn repeatable task behaviour or output style. A measured evaluation should guide the choice." },
+    { question: "How can AI automation be kept reliable?", answer: "Reliability comes from trusted data, constrained tool permissions, input and output validation, evaluation datasets, logging, fallbacks and human approval for high-impact actions. Controls should match the sensitivity and risk of the workflow." }
+  ],
+  training: [
+    { question: "What technology training does INVENTYK offer?", answer: "The current learning catalogue includes Python programming, data structures, Flutter app development, Java full-stack development, C and C++, plus industrial training and internship opportunities." },
+    { question: "Does INVENTYK provide final-year project mentorship?", answer: "Mentorship can cover topic feasibility, problem statements, requirements, system architecture, databases, implementation reviews, testing, documentation and presentation practice. Learners remain responsible for their own academic work and submissions." },
+    { question: "Which learning formats are available?", answer: "Learning formats can include live online sessions, hybrid or weekend mentorship and self-paced work with milestone reviews. Batch availability, duration and mentor schedules are confirmed separately." }
+  ],
+  process: [
+    { question: "What are the stages of INVENTYK's software delivery process?", answer: "The delivery approach has five stages: discovery and scoping, architecture and data modelling, milestone-based development, quality and security verification, and deployment with documentation and support." },
+    { question: "How is project progress reviewed?", answer: "Progress is reviewed through agreed milestones, working previews, version-controlled changes, demonstrations and written feedback. Acceptance criteria help both sides understand what is complete." },
+    { question: "Can project requirements change after development starts?", answer: "Requirements can evolve, but changes should be recorded and assessed for impact on scope, timeline, dependencies and cost before they are added to the delivery plan." }
+  ],
+  resources: [
+    { question: "What topics do INVENTYK's engineering resources cover?", answer: "The resource library focuses on practical software engineering topics such as project scoping, AI architecture, retrieval systems, relational databases, web application development and academic project planning." },
+    { question: "Are the guides a substitute for technical discovery?", answer: "No. Guides explain concepts and decision frameworks. A real project still needs its own requirements analysis, security review, data assessment and technical validation." }
+  ],
+  tools: [
+    { question: "What does the Project Scope Starter do?", answer: "It organises an early software idea into a short brief covering project type, platform, users, requirements and a planning checklist. It does not estimate a final project price or timeline." },
+    { question: "Are technology stack suggestions final recommendations?", answer: "No. The matcher offers starting points. Final stack choices depend on product needs, existing systems, skills, data, scale, security and operating cost." }
+  ]
+};
+
+export function FAQSection2({ title = "Frequently asked questions", items = [] }) {
+  return <section className="faq-section section-wrap">
+    <div className="section-heading"><SectionLabel2>STRAIGHT ANSWERS</SectionLabel2><h2>{title}</h2></div>
+    <div className="faq-list">{items.map((item) => <details className="faq-item" key={item.question}>
+      <summary><span>{item.question}</span><b>+</b></summary>
+      <p>{item.answer}</p>
+    </details>)}</div>
+  </section>;
+}
+
+
 function PageIntro2({ eyebrow, title, description }) {
   return <section className="page-intro"><div className="eyebrow">{eyebrow}</div><h1>{title}</h1><p>{description}</p></section>;
 }
@@ -120,6 +162,7 @@ export function AISolutions() {
         <article><Gauge/><h3>Predictable AI Operations</h3><p>Use prompt caching, model routing, usage limits, evaluation and telemetry to manage cost and reliability over time.</p></article>
       </div>
     </section>
+    <FAQSection2 title="AI development questions, answered." items={siteFaqs.ai}/>
     <CTA2 title="Have an AI workflow worth improving?" text="Start with the process, data and outcome you want to improve. We can shape an appropriate technical pilot before scaling." primary="Discuss an AI Solution"/>
   </>;
 }
@@ -167,16 +210,17 @@ export function Process() {
       <div className="section-heading"><SectionLabel2>FLEXIBLE COLLABORATION</SectionLabel2><h2>Engagement models<br/><em>for different stages.</em></h2><p>Choose the working relationship that best fits your scope, roadmap and internal capacity.</p></div>
       <div className="engagement-grid">{engagementOptions.map(([title,text,meta],i)=><article key={title}><span>0{i+1} / MODEL</span><h3>{title}</h3><p>{text}</p><small>{meta}</small></article>)}</div>
     </section>
+    <FAQSection2 title="Questions about software delivery." items={siteFaqs.process}/>
     <CTA2 title="Let's define the right delivery plan." text="Share the outcome, constraints and timeline you are working toward. We can map the scope and a practical way to deliver it." primary="Start Project Scoping"/>
   </>;
 }
 
 const resourceArticles = [
-  {category:"SOFTWARE MANAGEMENT",read:"7 MIN READ",title:"How to Scope a Custom Software Project Without Scope Creep",text:"Define the business outcome, acceptance criteria, technical boundaries and change process before committing to a build.",points:["Separate essential launch requirements from later enhancements","Record assumptions, exclusions and dependencies","Review scope changes through agreed impact assessment"]},
-  {category:"AI ARCHITECTURE",read:"9 MIN READ",title:"When to Use RAG vs Fine-Tuning",text:"Compare retrieval, model adaptation and hybrid approaches through data freshness, latency, privacy and operating cost.",points:["Use retrieval when answers depend on changing source documents","Evaluate fine-tuning for consistent task behaviour and format","Measure grounding, quality and cost against a real test set"]},
-  {category:"DATABASE ENGINEERING",read:"6 MIN READ",title:"Designing Multi-Tenant SaaS Databases with PostgreSQL",text:"Understand shared-table, schema-per-tenant and database-per-tenant approaches for SaaS systems.",points:["Compare isolation, cost and operational complexity","Use row-level security and scoped access carefully","Plan migrations, backups and tenant-aware observability"]},
-  {category:"WEB DEVELOPMENT",read:"8 MIN READ",title:"Getting Started with MERN Stack Development",text:"A practical guide to structuring a full-stack application with MongoDB, Express, React and Node.js.",points:["Organise frontend and backend responsibilities","Design clear REST endpoints and validation","Connect persistence, authentication and deployment"]},
-  {category:"LEARNING & RESEARCH",read:"5 MIN READ",title:"How to Choose a Strong Final-Year Project Topic",text:"A framework for matching an academic question to skills, available data, feasibility and a realistic timeline.",points:["Start with a meaningful problem statement","Check data, hardware and implementation constraints","Define a measurable evaluation approach"]}
+  {category:"SOFTWARE MANAGEMENT",read:"7 MIN READ",title:"How to Scope a Custom Software Project Without Scope Creep",href:"/insights/custom-software-project-scoping.html",text:"Define the business outcome, acceptance criteria, technical boundaries and change process before committing to a build.",points:["Separate essential launch requirements from later enhancements","Record assumptions, exclusions and dependencies","Review scope changes through agreed impact assessment"]},
+  {category:"AI ARCHITECTURE",read:"9 MIN READ",title:"When to Use RAG vs Fine-Tuning",href:"/insights/rag-vs-fine-tuning.html",text:"Compare retrieval, model adaptation and hybrid approaches through data freshness, latency, privacy and operating cost.",points:["Use retrieval when answers depend on changing source documents","Evaluate fine-tuning for consistent task behaviour and format","Measure grounding, quality and cost against a real test set"]},
+  {category:"DATABASE ENGINEERING",read:"6 MIN READ",title:"Designing Multi-Tenant SaaS Databases with PostgreSQL",href:"/insights/multi-tenant-saas-postgresql.html",text:"Understand shared-table, schema-per-tenant and database-per-tenant approaches for SaaS systems.",points:["Compare isolation, cost and operational complexity","Use row-level security and scoped access carefully","Plan migrations, backups and tenant-aware observability"]},
+  {category:"WEB DEVELOPMENT",read:"8 MIN READ",title:"Getting Started with MERN Stack Development",href:"/insights/mern-stack-development-guide.html",text:"A practical guide to structuring a full-stack application with MongoDB, Express, React and Node.js.",points:["Organise frontend and backend responsibilities","Design clear REST endpoints and validation","Connect persistence, authentication and deployment"]},
+  {category:"LEARNING & RESEARCH",read:"5 MIN READ",title:"How to Choose a Strong Final-Year Project Topic",href:"/insights/final-year-project-planning.html",text:"A framework for matching an academic question to skills, available data, feasibility and a realistic timeline.",points:["Start with a meaningful problem statement","Check data, hardware and implementation constraints","Define a measurable evaluation approach"]}
 ];
 
 export function Resources() {
@@ -186,11 +230,12 @@ export function Resources() {
       <div className="section-heading"><SectionLabel2>KNOWLEDGE BASE</SectionLabel2><h2>Understand the trade-offs<br/><em>before you build.</em></h2><p>Good engineering decisions begin with clear questions. Use these guides as starting points for planning and evaluating your next technical step.</p></div>
       <div className="resource-callout"><BookOpen/><b>Learn by exploring</b><p>Read a guide, identify the decisions that apply to your context and turn them into a short technical checklist.</p></div>
     </section>
-    <section className="resource-grid section-wrap">{resourceArticles.map(a=><article className="resource-card" key={a.title}><div className="resource-meta"><span>{a.category}</span><small>{a.read}</small></div><h3>{a.title}</h3><p>{a.text}</p><ul>{a.points.map(x=><li key={x}>{x}</li>)}</ul></article>)}</section>
+    <section className="resource-grid section-wrap">{resourceArticles.map(a=><article className="resource-card" key={a.title}><div className="resource-meta"><span>{a.category}</span><small>{a.read}</small></div><h3>{a.title}</h3><p>{a.text}</p><ul>{a.points.map(x=><li key={x}>{x}</li>)}</ul><a className="resource-read-more" href={a.href}>Read full guide <ArrowUpRight size={15}/></a></article>)}</section>
     <section className="resource-guides section-wrap">
       <div><SectionLabel2>MORE LEARNING PATHS</SectionLabel2><h2>Build a stronger<br/><em>technical foundation.</em></h2></div>
       <div className="resource-guide-links"><a href="/services"><Code2/> Software & Web Engineering <ArrowUpRight/></a><a href="/ai-solutions"><BrainCircuit/> AI Systems & Automation <ArrowUpRight/></a><a href="/training"><GraduationCap/> Training & Mentorship <ArrowUpRight/></a><a href="/tools"><ClipboardList/> Planning Tools <ArrowUpRight/></a></div>
     </section>
+    <FAQSection2 title="Questions about the resource library." items={siteFaqs.resources}/>
     <CTA2 title="Need help applying an idea?" text="Turn a technical question into a clear next step. We can help review the approach and identify a practical path forward."/>
   </>;
 }
@@ -230,6 +275,7 @@ export function Tools() {
       </article>
     </section>
     <p className="tool-disclaimer section-wrap">These tools run in your browser and provide general planning guidance. Do not enter passwords, secrets, personal records or confidential production data.</p>
+    <FAQSection2 title="Using the engineering planning tools." items={siteFaqs.tools}/>
     <CTA2 title="Ready to validate your architecture?" text="Use the output as a starting brief, then review requirements, risks and implementation options with an engineer." primary="Talk to Inventyk"/>
   </>;
 }
