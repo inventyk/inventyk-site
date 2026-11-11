@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import {
   ArrowUpRight, BookOpen, Bot, BrainCircuit, Check, ClipboardList, Cloud,
-  Code2, Database, FileText, GitBranch, GraduationCap, Gauge, Headphones,
-  Layers3, LockKeyhole, Mic, Network, Plug, Presentation, Server,
+  Code2, Database, FileText, GitBranch, GraduationCap, Gauge,
+  LockKeyhole, Mic, Network, Plug, Presentation, Server,
   ShieldCheck, ShoppingCart, Smartphone, Target, Users, Workflow
 } from "lucide-react";
 
