@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, NavLink, Link, useLocation } from "react-router-dom";
 import {
   ArrowUpRight, Menu, X, Bot, Cloud, Database, Code2, Workflow, Sparkles,
-  Smartphone, ShieldCheck, LineChart, Lightbulb, Mail, Send, Linkedin,
+  Smartphone, LineChart, Lightbulb, Mail, Send, Linkedin,
   Instagram, MapPin, Check, GraduationCap, BriefcaseBusiness,
   ChevronRight, Quote, Layers3, Gauge
 } from "lucide-react";
