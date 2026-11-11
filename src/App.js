@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { AISolutions, Process, Resources, Tools, ExtendedServices, TrainingExpansion, DeliveryPreview, ServicesArchitectureVisual, LearningPathVisual, NeuralNetworkVisual, ProcessPipelineVisual, KnowledgeStackVisual, PlanningWorkbenchVisual, FAQSection2, siteFaqs } from "./ExtendedPages";
+import { AISolutions, Process, Resources, Tools, ExtendedServices, TrainingExpansion, DeliveryPreview, ServicesArchitectureVisual, LearningPathVisual, FAQSection2, siteFaqs } from "./ExtendedPages";
 import { BrowserRouter, Routes, Route, NavLink, Link, Navigate, useLocation } from "react-router-dom";
 import {
   ArrowUpRight, Menu, X, Bot, Cloud, Database, Code2, Workflow, Sparkles,
