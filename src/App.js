@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, NavLink, Link, Navigate, useLocation } fr
 import {
   ArrowUpRight, Menu, X, Bot, Cloud, Database, Code2, Workflow, Sparkles,
   Smartphone, LineChart, Lightbulb, Mail, Send, Linkedin,
-  Instagram, MapPin, Check, GraduationCap, BriefcaseBusiness,
+  Instagram, MapPin, GraduationCap, BriefcaseBusiness,
   ChevronRight, Quote, Layers3, Gauge
 } from "lucide-react";
 
