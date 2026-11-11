@@ -60,43 +60,84 @@ function CTA2({ title, text, primary = "Let's Talk" }) {
 
 
 
-export function OrbitExperience({ eyebrow, title, description, variant = "ecosystem" }) {
-  return <section className={"orbit-experience-section section-wrap orbit-experience-" + variant}>
-    <div className="orbit-experience-copy">
-      <SectionLabel2>{eyebrow}</SectionLabel2>
-      <h2>{title}</h2>
-      <p>{description}</p>
-      <div className="orbit-experience-status"><span/><b>CONNECTED BY DESIGN</b><small>AI · SOFTWARE · CLOUD · LEARNING</small></div>
+
+
+/* Distinct page visuals — each page has its own visual metaphor and animation language. */
+export function ServicesArchitectureVisual() {
+  const nodes=[
+    {n:"01",icon:Smartphone,title:"Experience",detail:"Web · Mobile · UI"},
+    {n:"02",icon:Server,title:"Application",detail:"APIs · Business Logic"},
+    {n:"03",icon:Network,title:"Integration",detail:"Data · Services · Events"},
+    {n:"04",icon:Cloud,title:"Infrastructure",detail:"Cloud · CI/CD · Scale"}
+  ];
+  return <section className="page-visual-section section-wrap services-architecture-visual">
+    <div className="page-visual-copy"><SectionLabel2>ENGINEERED AS ONE SYSTEM</SectionLabel2><h2>Every layer has a role.<br/><em>Every connection matters.</em></h2><p>Explore how user experiences connect to application logic, business integrations and reliable infrastructure. The best products are designed across the whole system—not as isolated screens.</p></div>
+    <div className="systems-blueprint" aria-label="Software system architecture diagram">
+      <div className="blueprint-toolbar"><span><i/><i/><i/></span><b>SYSTEM ARCHITECTURE / 001</b><small>CONNECTED LAYERS</small></div>
+      <div className="systems-flow">{nodes.map((node,i)=><React.Fragment key={node.n}><article className="systems-node" style={{"--node-index":i}}><span className="systems-node-index">{node.n}</span><div className="systems-node-icon"><node.icon/></div><b>{node.title}</b><small>{node.detail}</small><span className="systems-node-port systems-node-port-left"/><span className="systems-node-port systems-node-port-right"/></article>{i<nodes.length-1&&<div className="systems-link"><i/><span/></div>}</React.Fragment>)}</div>
+      <div className="blueprint-footer"><span>MODULAR BY DESIGN</span><span>SCALABLE · MAINTAINABLE · CONNECTED</span></div>
     </div>
-    <div className="orbit-experience-art" aria-hidden="true">
-      <div className="orbit-art-grid"/>
-      <div className="orbit-art-glow"/>
-      <i className="orbit-star orbit-star-a"/>
-      <i className="orbit-star orbit-star-b"/>
-      <i className="orbit-star orbit-star-c"/>
-      <i className="orbit-star orbit-star-d"/>
-      <i className="orbit-star orbit-star-e"/>
-      <div className="orbit-art-ring orbit-art-ring-outer"/>
-      <div className="orbit-art-ring orbit-art-ring-middle"/>
-      <div className="orbit-art-ring orbit-art-ring-inner"/>
-      <div className="orbit-track orbit-track-one">
-        <div className="orbit-satellite orbit-satellite-top"><span className="orbit-satellite-chip"><Bot/><b>AI Agents</b></span></div>
-        <div className="orbit-satellite orbit-satellite-bottom"><span className="orbit-satellite-chip"><Cloud/><b>Cloud</b></span></div>
-      </div>
-      <div className="orbit-track orbit-track-two">
-        <div className="orbit-satellite orbit-satellite-top"><span className="orbit-satellite-chip"><Code2/><b>Software</b></span></div>
-        <div className="orbit-satellite orbit-satellite-bottom"><span className="orbit-satellite-chip"><GraduationCap/><b>Learning</b></span></div>
-      </div>
-      <div className="orbit-center-halo"/>
-      <div className="orbit-center-planet">
-        <div className="orbit-planet-shine"/>
-        <BrainCircuit className="orbit-center-icon"/>
-        <b>INVENTYK</b>
-        <small>INTELLIGENT SYSTEMS</small>
-      </div>
-      <div className="orbit-art-caption orbit-art-caption-left">SYSTEM / 01</div>
-      <div className="orbit-art-caption orbit-art-caption-right"><span/> LIVE ECOSYSTEM</div>
+  </section>;
+}
+
+export function LearningPathVisual() {
+  const stages=[
+    {n:"01",icon:BookOpen,title:"Learn",tag:"CONCEPTS",desc:"Understand the foundations"},
+    {n:"02",icon:Code2,title:"Practice",tag:"HANDS-ON",desc:"Turn knowledge into skill"},
+    {n:"03",icon:Layers3,title:"Build",tag:"PROJECTS",desc:"Create something real"},
+    {n:"04",icon:Target,title:"Review",tag:"FEEDBACK",desc:"Refine and improve"}
+  ];
+  return <section className="page-visual-section section-wrap learning-path-visual">
+    <div className="page-visual-copy"><SectionLabel2>LEARNING IN MOTION</SectionLabel2><h2>Progress is built<br/><em>one milestone at a time.</em></h2><p>A practical learning path moves from understanding to repetition, real projects and feedback. Each stage builds confidence for the next one.</p><div className="learning-path-note"><span className="learning-path-live-dot"/><b>LEARN → APPLY → BUILD → IMPROVE</b></div></div>
+    <div className="learning-track-board" aria-label="Four-stage learning path">
+      <div className="learning-track-head"><span>YOUR LEARNING PATH</span><small>SKILL DEVELOPMENT / 04 STAGES</small></div><div className="learning-track-line"><i/></div>
+      <div className="learning-stages">{stages.map((stage,i)=><article className="learning-stage" key={stage.n} style={{"--stage-index":i}}><div className="learning-stage-icon"><stage.icon/></div><small>{stage.n} / {stage.tag}</small><b>{stage.title}</b><span>{stage.desc}</span><div className="learning-stage-progress"><i/></div></article>)}</div>
+      <div className="learning-track-foot"><span><i/> FOUNDATION</span><span>CAPABILITY <i/></span></div><div className="learning-code-float learning-code-a">&lt;/&gt;</div><div className="learning-code-float learning-code-b">{"{ }"}</div>
     </div>
+  </section>;
+}
+
+export function NeuralNetworkVisual() {
+  const inputs=[["01","Documents"],["02","Databases"],["03","APIs"]];
+  const methods=[["04","Retrieve"],["05","Rerank"]];
+  const controls=[["07","Tool execution"],["08","Human review"]];
+  return <section className="page-visual-section section-wrap neural-network-visual">
+    <div className="page-visual-copy"><SectionLabel2>INSIDE THE AI ENGINE</SectionLabel2><h2>Intelligence is a<br/><em>network of decisions.</em></h2><p>Useful AI systems combine trusted inputs, retrieval, model reasoning, approved tools and human oversight. This network view shows how each stage contributes to a controlled result.</p><div className="neural-legend"><span><i className="legend-input"/> DATA</span><span><i className="legend-model"/> MODEL</span><span><i className="legend-control"/> CONTROL</span></div></div>
+    <div className="neural-board" aria-label="AI neural workflow network diagram">
+      <div className="neural-board-head"><span>AI WORKFLOW / NODE MAP</span><small>LIVE SIGNAL ROUTING</small></div>
+      <div className="neural-graph">
+        <svg className="neural-wires" viewBox="0 0 620 360" preserveAspectRatio="none" aria-hidden="true"><path d="M65 48 C150 48 155 93 240 93 S345 142 430 142 S520 185 565 185"/><path d="M65 115 C145 115 165 93 240 93 S340 142 430 142 S520 185 565 185"/><path d="M65 185 C145 185 160 93 240 93 S345 230 430 230 S520 185 565 185"/><path d="M65 255 C145 255 165 93 240 93 S350 230 430 230 S520 185 565 185"/><path d="M65 315 C150 315 155 230 240 230 S350 230 430 230 S520 185 565 185"/><path className="neural-signal" d="M65 48 C150 48 155 93 240 93 S345 142 430 142 S520 185 565 185"/></svg>
+        <div className="neural-column">{inputs.map(([n,t])=><div className="neural-node neural-node-input" key={n}><span>{n}</span><b>{t}</b></div>)}</div>
+        <div className="neural-column">{methods.map(([n,t])=><div className="neural-node neural-node-retrieval" key={n}><span>{n}</span><b>{t}</b></div>)}</div>
+        <div className="neural-column"><div className="neural-core"><BrainCircuit/><b>Reasoning</b><small>MODEL CORE</small><i/><i/><i/></div></div>
+        <div className="neural-column">{controls.map(([n,t])=><div className="neural-node neural-node-control" key={n}><span>{n}</span><b>{t}</b></div>)}</div>
+        <div className="neural-column"><div className="neural-node neural-node-output"><span>09</span><b>Verified output</b></div></div>
+      </div>
+      <div className="neural-board-foot"><span>GROUNDING</span><span>REASONING</span><span>GUARDRAILS</span><span>OUTCOME</span></div>
+    </div>
+  </section>;
+}
+
+export function ProcessPipelineVisual() {
+  const steps=[["01","Discover","Define the outcome"],["02","Design","Agree the architecture"],["03","Build","Deliver in sprints"],["04","Verify","Test and review"],["05","Launch","Release with confidence"]];
+  return <section className="page-visual-section section-wrap process-pipeline-visual">
+    <div className="page-visual-copy"><SectionLabel2>FROM IDEA TO RELEASE</SectionLabel2><h2>A visible workflow.<br/><em>No hidden hand-offs.</em></h2><p>Every milestone has a purpose, a review point and a concrete output. A moving signal traces the delivery path so progress stays easy to understand.</p></div>
+    <div className="pipeline-board" aria-label="Five-stage software delivery pipeline"><div className="pipeline-board-top"><span>DELIVERY PIPELINE</span><small>STAGE 01 — 05</small></div><div className="pipeline-rail"><i/></div><div className="pipeline-stages">{steps.map(([n,title,desc],i)=><article className="pipeline-stage" key={n} style={{"--pipeline-index":i}}><div className="pipeline-marker"><span>{n}</span><i/></div><b>{title}</b><small>{desc}</small><span className="pipeline-complete">{i===4?"RELEASE":"MILESTONE"}</span></article>)}</div><div className="pipeline-foot"><span>PLAN</span><span>ITERATE</span><span>SHIP</span></div></div>
+  </section>;
+}
+
+export function KnowledgeStackVisual() {
+  const docs=[["01","AI Architecture","RAG · EVALUATION · AGENTS","AI"],["02","Database Patterns","POSTGRESQL · DATA MODELS","DB"],["03","Engineering Practice","DESIGN · DELIVERY · QA","DEV"]];
+  return <section className="page-visual-section section-wrap knowledge-stack-visual">
+    <div className="page-visual-copy"><SectionLabel2>KNOWLEDGE, CONNECTED</SectionLabel2><h2>Ideas become useful<br/><em>when they connect.</em></h2><p>Explore practical notes across AI architecture, software engineering and data systems. Each guide is a building block for clearer technical decisions.</p></div>
+    <div className="knowledge-board" aria-label="Knowledge library visual"><div className="knowledge-board-header"><span>INVENTYK / FIELD NOTES</span><small>ENGINEERING LIBRARY</small></div><div className="knowledge-doc-stack">{docs.map((doc,i)=><article className="knowledge-doc" key={doc[0]} style={{"--doc-index":i}}><div className="knowledge-doc-top"><span>NOTE / {doc[0]}</span><b>{doc[3]}</b></div><h3>{doc[1]}</h3><small>{doc[2]}</small><div className="knowledge-doc-lines"><i/><i/><i/></div></article>)}</div><div className="knowledge-tags"><span>RESEARCH</span><span>BUILD</span><span>REFINE</span><span>SHARE</span></div><div className="knowledge-scanline"/></div>
+  </section>;
+}
+
+export function PlanningWorkbenchVisual() {
+  return <section className="page-visual-section section-wrap planning-workbench-visual">
+    <div className="page-visual-copy"><SectionLabel2>ENGINEERING WORKBENCH</SectionLabel2><h2>Turn an idea into<br/><em>a considered plan.</em></h2><p>Frame the scope, compare a technology direction and identify architecture risks before implementation starts. These planning views make key decisions visible.</p></div>
+    <div className="workbench-window" aria-label="Engineering planning dashboard illustration"><div className="workbench-top"><span><i/><i/><i/></span><b>PROJECT WORKBENCH</b><small>PLANNING MODE</small></div><div className="workbench-body"><aside className="workbench-sidebar"><span>WORKSPACE</span><i className="workbench-active"/><i/><i/><i/><small>INVENTYK / TOOLS</small></aside><div className="workbench-main"><div className="workbench-title"><span>PROJECT OVERVIEW</span><b>System blueprint</b></div><div className="workbench-blueprint"><div className="workbench-gridlines"/><div className="workbench-module module-users"><Users/><b>Users</b><small>Roles & access</small></div><div className="workbench-module module-app"><Code2/><b>Application</b><small>Core workflows</small></div><div className="workbench-module module-data"><Database/><b>Data layer</b><small>Storage & sync</small></div><div className="workbench-connector connector-one"/><div className="workbench-connector connector-two"/><div className="workbench-scan"/></div><div className="workbench-stats"><div><small>SCOPE</small><b>DEFINED</b><span/></div><div><small>STACK</small><b>COMPARED</b><span/></div><div><small>RISK</small><b>REVIEWED</b><span/></div></div></div></div></div>
   </section>;
 }
 
@@ -179,7 +220,7 @@ export function AISolutions() {
         <div className="ai-flow-output"><b>Verified Outcomes</b><span>Actions · Insights · Records</span></div>
       </div>
     </section>
-    <OrbitExperience variant="intelligence" eyebrow="THE INTELLIGENCE ORBIT" title={<>A smarter system.<br/><em>Every part connected.</em></>} description="Models, trusted knowledge, tools, evaluation and human review combine to turn AI capability into dependable workflows." />
+    <NeuralNetworkVisual/>
     <section className="agent-crew section-wrap">
       <div className="section-heading"><SectionLabel2>THE AGENT ENGINE</SectionLabel2><h2>Specialists working<br/><em>as one workflow.</em></h2><p>Agent roles can divide planning, implementation and verification into smaller tasks, with a human approval gate before release.</p></div>
       <div className="agent-crew-grid">{[["01","Sprint Planner","Requirements & task planning"],["02","Code Synthesizer","Implementation support"],["03","RAG Sentinel","Knowledge grounding"],["04","QA Sentinel","Testing & quality checks"],["05","Cloud Gatekeeper","Release & deployment checks"]].map(([n,t,d])=><article key={n}><span>{n}</span><b>{t}</b><small>{d}</small></article>)}</div>
@@ -241,7 +282,7 @@ export function Process() {
       <div className="process-principle"><ShieldCheck/><b>Quality Gates</b><span>Testing, security and performance checks.</span></div>
       <div className="process-principle"><FileText/><b>Clear Handover</b><span>Documentation and agreed ownership terms.</span></div>
     </section>
-    <OrbitExperience variant="process" eyebrow="THE DELIVERY ORBIT" title={<>Five stages.<br/><em>One continuous loop.</em></>} description="Discovery, design, build, verification and launch stay connected through feedback, review and measurable milestones." />
+    <ProcessPipelineVisual/>
     <section className="process-timeline section-wrap">
       <div className="section-heading"><SectionLabel2>FIVE-STAGE DELIVERY</SectionLabel2><h2>Engineering that stays<br/><em>visible at every step.</em></h2></div>
       <div className="process-phase-list">{deliveryPhases.map(p=><article className="process-phase" key={p.n}><div className="process-phase-marker"><span>{p.n}</span><i/></div><div className="process-phase-body"><small>{p.when}</small><h3>{p.title}</h3><p>{p.text}</p><div className="phase-deliverable"><b>Key deliverable</b><span>{p.deliverable}</span></div></div></article>)}</div>
@@ -274,7 +315,7 @@ export function Resources() {
       <div className="section-heading"><SectionLabel2>KNOWLEDGE BASE</SectionLabel2><h2>Understand the trade-offs<br/><em>before you build.</em></h2><p>Good engineering decisions begin with clear questions. Use these guides as starting points for planning and evaluating your next technical step.</p></div>
       <div className="resource-callout"><BookOpen/><b>Learn by exploring</b><p>Read a guide, identify the decisions that apply to your context and turn them into a short technical checklist.</p></div>
     </section>
-    <OrbitExperience variant="knowledge" eyebrow="IDEAS IN ORBIT" title={<>Explore across<br/><em>connected disciplines.</em></>} description="Software engineering, AI architecture, data systems and learning are different fields with useful connections between them." />
+    <KnowledgeStackVisual/>
     <section className="resource-grid section-wrap">{resourceArticles.map(a=><article className="resource-card" key={a.title}><div className="resource-meta"><span>{a.category}</span><small>{a.read}</small></div><h3>{a.title}</h3><p>{a.text}</p><ul>{a.points.map(x=><li key={x}>{x}</li>)}</ul><a className="resource-read-more" href={a.href}>Read full guide <ArrowUpRight size={15}/></a></article>)}</section>
     <section className="resource-guides section-wrap">
       <div><SectionLabel2>MORE LEARNING PATHS</SectionLabel2><h2>Build a stronger<br/><em>technical foundation.</em></h2></div>
@@ -300,7 +341,7 @@ export function Tools() {
   const handleCopy=()=>{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(brief).then(()=>setCopied(true)).catch(()=>setCopied(false));}};
   return <>
     <PageIntro2 eyebrow="ENGINEERING UTILITIES" title="Plan the next step with clarity." description="Lightweight planning tools to help frame a software brief, compare technology directions and think through architecture trade-offs. Recommendations are starting points, not substitutes for technical discovery."/>
-    <OrbitExperience variant="planning" eyebrow="PLAN · CONNECT · BUILD" title={<>Bring the moving parts<br/><em>into alignment.</em></>} description="A clearer brief, a considered technology stack and a thoughtful architecture help turn an early idea into a practical plan." />
+    <PlanningWorkbenchVisual/>
     <section className="tools-layout section-wrap">
       <article className="tool-panel"><div className="tool-heading"><span>TOOL 01</span><ClipboardList/><h2>Project Scope Starter</h2><p>Turn an early idea into a structured brief you can discuss with a development team.</p></div>
         <label>What are you building?<select value={projectType} onChange={e=>setProjectType(e.target.value)}><option>Business web application</option><option>Marketing website</option><option>Mobile application</option><option>E-commerce platform</option><option>AI-powered workflow</option><option>Internal operations tool</option></select></label>
