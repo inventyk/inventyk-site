@@ -92,7 +92,7 @@ export function LearningPathVisual() {
     <div className="learning-track-board" aria-label="Four-stage learning path">
       <div className="learning-track-head"><span>YOUR LEARNING PATH</span><small>SKILL DEVELOPMENT / 04 STAGES</small></div><div className="learning-track-line"><i/></div>
       <div className="learning-stages">{stages.map((stage,i)=><article className="learning-stage" key={stage.n} style={{"--stage-index":i}}><div className="learning-stage-icon"><stage.icon/></div><small>{stage.n} / {stage.tag}</small><b>{stage.title}</b><span>{stage.desc}</span><div className="learning-stage-progress"><i/></div></article>)}</div>
-      <div className="learning-track-foot"><span><i/> FOUNDATION</span><span>CAPABILITY <i/></span></div><div className="learning-code-float learning-code-a">&lt;/&gt;</div><div className="learning-code-float learning-code-b">{"{ }"}</div>
+      <div className="learning-track-foot"><span><i/> FOUNDATION</span><span>CAPABILITY <i/></span></div>
     </div>
   </section>;
 }
