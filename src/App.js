@@ -1,13 +1,212 @@
-import React,{useState} from "react";import{ArrowUpRight,Menu,X,Bot,Workflow,Code2,Smartphone,Cloud,Database,Sparkles,CheckCircle2,MoveUpRight,ChevronRight}from"lucide-react";
-const services=[{icon:Bot,n:"AI Agents & Assistants",d:"Purpose-built AI agents that understand your workflows, work with your information and help your team move faster."},{icon:Workflow,n:"Intelligent Automation",d:"Connect tools, eliminate repetitive work and create dependable workflows across your business."},{icon:Code2,n:"Custom Software Development",d:"Web platforms, dashboards and business applications designed around the way your organisation works."},{icon:Smartphone,n:"Web & Mobile Applications",d:"Modern, responsive digital experiences that make your products and services easier to use."},{icon:Database,n:"Integrations & Data Systems",d:"Bring disconnected tools together so information flows reliably across your operations."},{icon:Cloud,n:"Cloud, Deployment & Support",d:"Production-ready infrastructure, deployment practices and ongoing technical improvements."}];
-const steps=[["01","Understand","We start with your goals, current process and the real problem worth solving."],["02","Design & Build","We shape the right solution and build in focused, transparent iterations."],["03","Launch","We test, deploy and help your team adopt the new system with confidence."],["04","Improve","We learn from real use, refine what matters and help your technology grow."]];
-const tech=["React","Next.js","TypeScript","Node.js","Python","FastAPI","Flutter","Firebase","PostgreSQL","MongoDB","OpenAI","LangChain","Docker","AWS","n8n"];
-export default function App(){const[menu,setMenu]=useState(false);const close=()=>setMenu(false);return <div className="site-shell"><div className="announcement"><span className="pulse-dot"/> Building practical technology for ambitious businesses <span className="announce-right">INVENTYK / DIGITAL STUDIO</span></div><header className="nav-wrap"><a className="brand" href="#top" onClick={close}><span className="brand-mark">I<span>.</span></span><span>INVENTYK<small>TECHNOLOGY STUDIO</small></span></a><button className="mobile-toggle" onClick={()=>setMenu(!menu)} aria-label="Toggle navigation">{menu?<X/>:<Menu/>}</button><nav className={menu?"nav-links open":"nav-links"}><a href="#services" onClick={close}>Services</a><a href="#approach" onClick={close}>Our approach</a><a href="#technology" onClick={close}>Technology</a><a href="#about" onClick={close}>About</a><a className="nav-cta" href="#contact" onClick={close}>Let's talk <ArrowUpRight size={16}/></a></nav></header><main id="top">
-<section className="hero section-pad"><div className="hero-grid"/><div className="hero-copy"><div className="eyebrow"><span/> IDEAS INTO INTELLIGENT SYSTEMS</div><h1>Build smarter.<br/><span>Move further.</span></h1><p className="hero-lead">We turn ambitious ideas into useful technology — from AI-powered products and intelligent automation to custom software built for the way your business works.</p><div className="hero-actions"><a className="button button-primary" href="#contact">Start a conversation <ArrowUpRight size={18}/></a><a className="text-link" href="#services">Explore what we build <ChevronRight size={17}/></a></div><div className="hero-foot"><span>AI-POWERED</span><i/><span>HUMAN-LED</span><i/><span>BUILT TO SCALE</span></div></div><div className="hero-visual"><div className="visual-orbit orbit-one"/><div className="visual-orbit orbit-two"/><div className="visual-core"><div className="core-inner">I<span>.</span></div></div><div className="float-card card-ai"><Sparkles size={15}/><span>Applied AI</span><b>Intelligence</b></div><div className="float-card card-flow"><Workflow size={16}/><span>Connected systems</span><b>Automation</b></div><div className="float-card card-code"><Code2 size={16}/><span>Digital products</span><b>Engineering</b></div><div className="visual-caption">IDEATE <span>·</span> ENGINEER <span>·</span> EVOLVE</div></div></section>
-<section className="signal-row"><div><strong>01</strong><span>Understand the challenge</span></div><div><strong>02</strong><span>Build the right solution</span></div><div><strong>03</strong><span>Make it work in the real world</span></div></section>
-<section className="intro section-pad" id="about"><div className="section-kicker">/ WHO WE ARE</div><div className="intro-content"><h2>Technology should solve problems.<br/><em>Not create new ones.</em></h2><div><p>INVENTYK is a technology studio focused on building practical digital solutions for modern businesses. We bring software engineering, AI and automation together to turn complex processes into clear, useful experiences.</p><p>We believe good technology starts with listening, is built with intention and gets better through real-world use.</p><a className="inline-link" href="#contact">Tell us what you're working on <ArrowUpRight size={16}/></a></div></div></section>
-<section className="services-section section-pad" id="services"><div className="section-top"><div><div className="section-kicker">/ WHAT WE DO</div><h2>Technology built<br/><em>around your business.</em></h2></div><p>From the first idea to the system your team relies on every day, we help you make technology useful, connected and ready for what's next.</p></div><div className="service-grid">{services.map((s,i)=><article className="service-card" key={s.n}><div className="service-number">0{i+1}</div><div className="service-icon"><s.icon size={22}/></div><h3>{s.n}</h3><p>{s.d}</p><a href="#contact" aria-label={"Discuss "+s.n}><ArrowUpRight size={18}/></a></article>)}</div></section>
-<section className="approach section-pad" id="approach"><div className="section-kicker">/ HOW WE WORK</div><div className="approach-head"><h2>Clear thinking.<br/><em>Deliberate execution.</em></h2><p>No unnecessary complexity. No technology for technology's sake. Just a thoughtful process that keeps the outcome in focus.</p></div><div className="steps">{steps.map(([n,t,d])=><article className="step" key={n}><span>{n}</span><div><h3>{t}</h3><p>{d}</p></div><MoveUpRight size={18}/></article>)}</div></section>
-<section className="principle section-pad"><div className="principle-mark">“</div><p>We don't start with the technology.<br/><span>We start with what needs to change.</span></p><div className="principle-bottom">THE INVENTYK PRINCIPLE <span>—</span> OUTCOMES BEFORE TOOLS</div></section>
-<section className="tech-section section-pad" id="technology"><div><div className="section-kicker">/ OUR TOOLKIT</div><h2>The right tool<br/><em>for the right job.</em></h2><p>We choose technology based on the problem, the people using it and the future it needs to support — not the latest trend.</p></div><div className="tech-cloud">{tech.map((t,i)=><span key={t} className={[10,0,4].includes(i)?"tech-highlight":""}>{t}</span>)}</div></section>
-<section className="contact-section section-pad" id="contact"><div className="contact-glow"/><div className="section-kicker">/ YOUR NEXT MOVE</div><div className="contact-content"><h2>Have a challenge<br/>worth <em>solving?</em></h2><p>Tell us what you're building, improving or trying to figure out. Let's find a practical way forward.</p><a className="button button-primary" href="mailto:inventyk@gmail.com?subject=Let's%20build%20something%20with%20INVENTYK">Start a conversation <ArrowUpRight size={18}/></a><span className="response-note"><CheckCircle2 size={15}/> Direct email · No obligation</span></div><div className="contact-side"><span>EMAIL US</span><a href="mailto:inventyk@gmail.com">inventyk@gmail.com <ArrowUpRight size={17}/></a><span>LET'S CREATE SOMETHING USEFUL.</span></div></section></main><footer className="footer"><a className="brand" href="#top"><span className="brand-mark">I<span>.</span></span><span>INVENTYK<small>TECHNOLOGY STUDIO</small></span></a><span>© {new Date().getFullYear()} INVENTYK. BUILT WITH INTENTION.</span><a href="#top">BACK TO TOP ↑</a></footer></div>}
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, NavLink, Link, useLocation } from "react-router-dom";
+import {
+  ArrowUpRight, Menu, X, Bot, Cloud, Database, Code2, Workflow, Sparkles,
+  Smartphone, ShieldCheck, LineChart, Lightbulb, Mail, Send, Linkedin,
+  Instagram, MapPin, Check, GraduationCap, BriefcaseBusiness, Rocket,
+  ChevronRight, Quote, Layers3, Gauge
+} from "lucide-react";
+
+const OLD = "https://inventyk.vercel.app";
+const SOCIAL = {
+  linkedin: "https://www.linkedin.com/in/inventyk-ai-powered-solution-102056367",
+  instagram: "https://www.instagram.com/inventyk_ai_powered_solution?igsh=MWlhaHg4b2o0MTdqbA==",
+  telegram: "https://t.me/INVENTYK",
+  email: "mailto:inventyk@gmail.com"
+};
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
+
+function Header() {
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
+  const links = [["Home", "/"], ["Services", "/services"], ["Pricing", "/pricing"], ["Training", "/training"]];
+  return <>
+    <div className="top-strip"><span className="online-dot" /> AI-POWERED DIGITAL SOLUTIONS &nbsp;·&nbsp; SOFTWARE &nbsp;·&nbsp; TECH TRAINING <span className="strip-right">PUNE, INDIA</span></div>
+    <header className="header">
+      <Link className="brand" to="/" onClick={close} aria-label="INVENTYK home">
+        <img src={OLD + "/icons/inventyk-logo.svg"} alt="Inventyk Logo" />
+        <span>INVENTYK<small>AI POWERED SOLUTION & SERVICES</small></span>
+      </Link>
+      <button className="menu-button" onClick={() => setOpen(v => !v)} aria-label="Toggle menu">{open ? <X /> : <Menu />}</button>
+      <nav className={open ? "main-nav nav-open" : "main-nav"}>
+        {links.map(([label, path]) => <NavLink key={path} to={path} end={path === "/"} onClick={close}>{label}</NavLink>)}
+        <a className="nav-contact" href={SOCIAL.email}>Let's Talk <ArrowUpRight size={16} /></a>
+      </nav>
+    </header>
+  </>;
+}
+
+function Footer() {
+  return <footer className="footer">
+    <div className="footer-main">
+      <div className="footer-brand">
+        <Link to="/" className="brand"><img src={OLD + "/icons/inventyk-logo.svg"} alt="Inventyk Logo" /><span>INVENTYK<small>AI POWERED SOLUTION & SERVICES</small></span></Link>
+        <p>Innovating the Future, Together.</p>
+        <div className="socials">
+          <a href={SOCIAL.linkedin} target="_blank" rel="noreferrer" aria-label="Inventyk LinkedIn Profile"><Linkedin /></a>
+          <a href={SOCIAL.instagram} target="_blank" rel="noreferrer" aria-label="Inventyk Instagram Profile"><Instagram /></a>
+          <a href={SOCIAL.telegram} target="_blank" rel="noreferrer" aria-label="Inventyk Telegram"><Send /></a>
+          <a href={SOCIAL.email} aria-label="Email Inventyk"><Mail /></a>
+        </div>
+      </div>
+      <div className="footer-col"><b>Explore</b><Link to="/">Home</Link><Link to="/services">Services</Link><Link to="/pricing">Pricing Plans</Link><Link to="/training">Training & Internships</Link></div>
+      <div className="footer-col"><b>Get in touch</b><a href={SOCIAL.email}>inventyk@gmail.com</a><a href={SOCIAL.telegram} target="_blank" rel="noreferrer">Message on Telegram</a><span className="location"><MapPin size={14} /> Pune - 411048, India</span></div>
+    </div>
+    <div className="footer-bottom"><span>© {new Date().getFullYear()} Inventyk. All rights reserved.</span><span>INNOVATING THE FUTURE, TOGETHER.</span></div>
+  </footer>;
+}
+
+function PageIntro({ eyebrow, title, description }) {
+  return <section className="page-intro"><div className="eyebrow">{eyebrow}</div><h1>{title}</h1><p>{description}</p></section>;
+}
+function SectionLabel({ children }) { return <div className="section-label"><span />{children}</div>; }
+function CTA({ title, text, primary = "Let's Talk", href = SOCIAL.email, secondary = true }) {
+  return <section className="cta-band" id="contact-us-section">
+    <div><SectionLabel>LET'S BUILD SOMETHING MEANINGFUL</SectionLabel><h2>{title}</h2><p>{text}</p></div>
+    <div className="cta-actions"><a className="button button-lime" href={href}>{primary}<ArrowUpRight size={18}/></a>{secondary && <a className="button button-outline" href={SOCIAL.telegram} target="_blank" rel="noreferrer">Message on Telegram<Send size={16}/></a>}</div>
+  </section>;
+}
+
+const tech = [
+  ["Next.js", "Frontend & Full-Stack", "/icons/nextjs.svg"],
+  ["React", "Frontend", "/icons/react.svg"],
+  ["Node.js", "Backend", "/icons/nodejs.svg"],
+  ["Python", "Backend & AI", "/icons/python.svg"],
+  ["Flutter", "Mobile Development", "/icons/flutter.svg"],
+  ["Genkit AI", "Artificial Intelligence", "/icons/genkitai.svg"],
+  ["Firebase", "Backend & Database", "/icons/firebase.svg"]
+];
+
+const testimonials = [
+  { quote: "Inventyk transformed our online presence with their innovative solutions and rapid development. Their team is professional and incredibly skilled.", name: "Dr. Chougule", role: "Principal, AGPPI", image: null },
+  { quote: "The AI-assisted development approach by Inventyk was a game-changer for our project timeline. We launched ahead of schedule with a superior product.", name: "Mrs. Kasture", role: "Head Librarian, AGPPI", image: null },
+  { quote: "Their training programs are top-notch. Our team gained valuable skills in a very short amount of time thanks to Inventyk's expert instructors.", name: "Mrs. Mote", role: "HOD of AI&DS department, VVPIET", image: OLD + "/_next/image?url=%2Fimages%2FMote%20.png&w=256&q=75" }
+];
+
+function Home() {
+  return <>
+    <section className="hero">
+      <div className="hero-bg-grid" />
+      <div className="hero-copy">
+        <div className="eyebrow"><span /> TECHNOLOGY THAT MOVES YOU FORWARD</div>
+        <h1>Innovate.<br/><em>Integrate.</em><br/>Inspire.</h1>
+        <p>Inventyk is your trusted partner for AI-powered digital solutions, bespoke software development, and expert tech training. We also offer hands-on training programs to help you master the latest technologies and boost your career. We turn complex challenges into growth opportunities.</p>
+        <div className="hero-actions"><Link className="button button-lime" to="/services">Discover Our Services <ArrowUpRight size={18}/></Link><Link className="button button-ghost" to="/pricing">View Pricing & Plans <ChevronRight size={17}/></Link></div>
+        <div className="hero-links"><Link to="/training">Explore Training <ArrowUpRight size={14}/></Link><span>AI-POWERED DIGITAL SOLUTIONS</span></div>
+      </div>
+      <div className="hero-art" aria-label="Inventyk technology illustration">
+        <div className="hero-ring ring-a"/><div className="hero-ring ring-b"/><div className="hero-ring ring-c"/>
+        <div className="hero-orb"><div className="orb-symbol">I<span>.</span></div><div className="orb-caption">INVENTYK</div></div>
+        <div className="orbit-chip chip-one"><Bot/><span>AI Solutions</span></div>
+        <div className="orbit-chip chip-two"><Workflow/><span>Integration</span></div>
+        <div className="orbit-chip chip-three"><Code2/><span>Development</span></div>
+        <div className="orbit-chip chip-four"><GraduationCap/><span>Tech Training</span></div>
+      </div>
+      <div className="hero-scroll">SCROLL TO EXPLORE <span>↓</span></div>
+    </section>
+
+    <section className="home-intro section-wrap">
+      <div className="intro-side"><SectionLabel>WHO WE ARE</SectionLabel><span className="large-index">01</span></div>
+      <div className="intro-main"><h2>Why Choose <em>Inventyk?</em></h2><p>We are your trusted partner for AI-powered digital solutions, bespoke software development, and expert tech training. We combine modern technologies and AI with hands-on learning to help businesses and people move forward.</p><div className="intro-highlights"><div><Sparkles/><b>AI-powered solutions</b><span>Modern technology for complex challenges.</span></div><div><Code2/><b>Bespoke software</b><span>Digital products shaped around your needs.</span></div><div><GraduationCap/><b>Expert tech training</b><span>Hands-on programs for practical skills.</span></div></div></div>
+    </section>
+
+    <section className="technology-section section-wrap">
+      <div className="section-heading"><SectionLabel>OUR TECHNOLOGY EXPERTISE</SectionLabel><h2>Modern tools.<br/><em>Meaningful solutions.</em></h2><p>We harness the power of modern technologies and AI to build robust, scalable, and innovative solutions.</p></div>
+      <div className="tech-grid">{tech.map(([name, desc, img])=><div className="tech-item" key={name}><div className="tech-logo"><img src={OLD + img} alt={name + " logo"} /></div><div><b>{name}</b><span>{desc}</span></div><ArrowUpRight className="tech-arrow"/></div>)}</div>
+    </section>
+
+    <section className="testimonials section-wrap">
+      <div className="section-heading"><SectionLabel>CLIENT FEEDBACK</SectionLabel><h2>What Our <em>Clients Say</em></h2><p>Hear from businesses who have partnered with Inventyk and experienced transformative results.</p></div>
+      <div className="testimonial-grid">{testimonials.map(t=><article className="testimonial-card" key={t.name}><Quote className="quote-icon"/><p>“{t.quote}”</p><div className="testimonial-person">{t.image ? <img src={t.image} alt={"Avatar of " + t.name}/> : <div className="avatar-placeholder">{t.name.split(" ").map(x=>x[0]).join("")}</div>}<div><b>{t.name}</b><span>{t.role}</span></div></div></article>)}</div>
+    </section>
+    <CTA title="Ready to Transform Your Business?" text="Let's discuss how Inventyk can help you achieve new heights of success with our expert services and training." primary="Schedule a Consultation" href="/pricing#contact-us-section"/>
+  </>;
+}
+
+const serviceList = [
+  { icon: Code2, title: "Custom Software Development", text: "Tailored software solutions designed to meet your specific business requirements, enhancing productivity and user engagement. We specialize in rapid, AI-assisted development for web and mobile applications." },
+  { icon: Cloud, title: "Cloud Solutions & DevOps", text: "Optimize your infrastructure with our cloud services, including migration, management, and DevOps practices for seamless operations and scalability." },
+  { icon: LineChart, title: "Data Analytics & AI Integration", text: "Unlock the power of your data with advanced analytics and AI-driven insights to make informed decisions and innovate faster. We integrate AI to enhance functionality and user experience." },
+  { icon: Lightbulb, title: "Digital Strategy Consulting", text: "Expert guidance to navigate the digital landscape, helping you craft effective strategies for sustainable growth and market leadership in the tech-driven world." }
+];
+
+function Services() {
+  return <>
+    <PageIntro eyebrow="WHAT WE DO" title="Our Expert Services" description="At Inventyk, we offer a comprehensive suite of digital services designed to empower your business and accelerate your journey towards innovation and efficiency, leveraging AI and modern development practices."/>
+    <section className="services-overview section-wrap">
+      <div className="section-heading"><SectionLabel>OUR CORE SERVICES</SectionLabel><h2>Solutions to help<br/><em>your business grow.</em></h2><p>We offer a comprehensive suite of digital services designed to transform your business. Our expert team delivers innovative solutions across multiple domains to ensure your success.</p></div>
+      <div className="service-list">{serviceList.map((s,i)=><article className="service-row" key={s.title}><div className="service-row-number">0{i+1}</div><div className="service-row-icon"><s.icon/></div><div className="service-row-body"><h3>{s.title}</h3><p>{s.text}</p></div><ArrowUpRight className="service-row-arrow"/></article>)}</div>
+    </section>
+    <section className="ai-development section-wrap">
+      <div className="ai-copy"><SectionLabel>FASTER DELIVERY</SectionLabel><h2>Fast, AI-Assisted<br/><em>Development.</em></h2><p>We harness the power of Artificial Intelligence and cutting-edge low-code tools like Firebase Studio and FlutterFlow to deliver high-quality web and mobile applications at an unprecedented speed.</p><p>Our approach minimizes development time and costs, allowing you to bring your ideas to market faster and more efficiently. Whether it's a complex enterprise solution or a nimble MVP, Inventyk ensures quality and speed.</p><Link className="text-link-lime" to="/pricing">Explore our pricing plans <ArrowUpRight size={16}/></Link></div>
+      <div className="service-image-card"><img src={OLD + "/_next/image?url=%2Fimages%2Fservices.png&w=1200&q=75"} alt="AI-Assisted Development"/><span>AI-ASSISTED WEB & MOBILE DEVELOPMENT</span></div>
+    </section>
+    <section className="service-visual section-wrap"><img src={OLD + "/_next/image?url=%2Fimages%2Fservices2.png&w=1200&q=75"} alt="Core Services Overview"/><div><SectionLabel>BUILT AROUND YOUR REQUIREMENTS</SectionLabel><h2>Technology that works<br/><em>for your business.</em></h2><p>Partner with us to leverage our expertise and drive your business forward with cutting-edge technology solutions.</p></div></section>
+    <CTA title="Have a Project in Mind?" text="Let's discuss your requirements and how our expertise can bring your vision to life." primary="Discuss Your Project"/>
+  </>;
+}
+
+const plans = [
+  { name:"Starter", price:"₹9,999", items:["1 Page Website / Landing Page","Mobile Responsive Design","Contact Form","1 Design Revision","Basic SEO Setup","7 Days Free Support"], action:"Get Started" },
+  { name:"Professional", price:"₹24,999", popular:true, items:["Up to 5 Pages Website","Custom Mobile-Responsive Design","Admin Panel (Basic)","Contact + Feedback Forms","2 Design Revisions","Basic Backend & Database Setup","15 Days Support","Basic SEO + Speed Optimization","1 Year Domain & Hosting"], action:"Choose Professional" },
+  { name:"Enterprise", price:"₹59,999", items:["Up to 10 Pages Dynamic Website","Modern UI/UX Design","Full Backend Development","Advanced Admin Dashboard","Database + Analytics Integration","3 Design Revisions","Advanced SEO & Speed Optimization","AI Chatbot (Basic)","Payment Gateway Integration","1 Year Domain & Hosting","45 Days Support"], action:"Go with Enterprise" },
+  { name:"Elite", price:"₹109,999", items:["Custom Web App / SaaS Platform","Full Stack Development (Frontend + Backend)","Custom AI Feature Integration","Advanced Admin Panel + Role-Based Access","Payment & Subscription Systems","API Integrations (3rd Party)","5 Design Revisions","2 Months Priority Support","Complete SEO & Analytics Setup","Custom Hosting & Deployment Strategy"], action:"Go with Elite" }
+];
+
+function Pricing() {
+  return <>
+    <PageIntro eyebrow="CLEAR & TRANSPARENT" title="Our Pricing Plans" description="Affordable and transparent pricing to help you innovate and grow. Choose a plan that fits your business needs or contact us for a custom quote."/>
+    <section className="pricing-section section-wrap">
+      <div className="pricing-grid">{plans.map((p,i)=><article className={p.popular?"pricing-card pricing-popular":"pricing-card"} key={p.name}>
+        {p.popular && <div className="popular-label">MOST POPULAR</div>}
+        <div className="plan-number">0{i+1} / WEBSITE & SOFTWARE</div><h2>{p.name}</h2><div className="plan-price">{p.price}<small> / project</small></div>
+        <ul>{p.items.map(x=><li key={x}><Check size={15}/>{x}</li>)}</ul>
+        <a className={p.popular?"button button-lime plan-button":"button button-outline plan-button"} href={"mailto:inventyk@gmail.com?subject="+encodeURIComponent("INVENTYK "+p.name+" Plan Inquiry")}>{p.action}<ArrowUpRight size={17}/></a>
+      </article>)}</div>
+      <p className="pricing-note">Need something different? The original plans note that you can contact Inventyk for a custom quote.</p>
+    </section>
+    <CTA title="Let's Find the Right Plan." text="Share your business needs and project requirements. We can discuss a plan that fits your goals." primary="Mail us" href={SOCIAL.email}/>
+  </>;
+}
+
+const courses = [
+  { icon: Code2, title:"Python Programming Masterclass", desc:"Comprehensive Python course covering fundamentals to advanced topics, including web development and data science." },
+  { icon: Database, title:"Data Structures with Python", desc:"Master essential data structures and algorithms using Python. Perfect for interview preparation and problem-solving skills." },
+  { icon: Smartphone, title:"Flutter App Development", desc:"Learn to build beautiful cross-platform mobile apps for iOS and Android using Flutter and Dart." },
+  { icon: Layers3, title:"Java Full-Stack Development", desc:"Learn to build robust enterprise-level applications with Java, Spring Boot, and modern frontend frameworks." },
+  { icon: Code2, title:"C Programming Fundamentals", desc:"Master the basics of programming with C, including memory management, pointers, and system programming concepts." },
+  { icon: Gauge, title:"C++ for Systems Programming", desc:"Dive deep into C++ for high-performance computing, game development, and systems-level programming." }
+];
+
+function Training() {
+  return <>
+    <PageIntro eyebrow="LEARN · BUILD · GROW" title="Training & Internships" description="Elevate your skills with our expert-led courses and gain real-world experience through our training and internship programs."/>
+    <section className="courses-section section-wrap">
+      <div className="section-heading"><SectionLabel>LEARN WITH INVENTYK</SectionLabel><h2>Our Core <em>Courses</em></h2><p>Explore our core technology courses and build practical skills across programming, software development and mobile application development.</p></div>
+      <div className="course-grid">{courses.map((c,i)=><article className="course-card" key={c.title}><div className="course-top"><span>0{i+1}</span><c.icon/></div><h3>{c.title}</h3><p>{c.desc}</p><a href={SOCIAL.email + "?subject=" + encodeURIComponent("Training Inquiry: " + c.title)}>Course inquiry <ArrowUpRight size={15}/></a></article>)}</div>
+    </section>
+    <section className="training-programs section-wrap">
+      <article className="training-feature"><div className="training-feature-image"><img src={OLD + "/_next/image?url=%2Fimages%2Ftraining.png&w=1200&q=75"} alt="Industrial Training & Internship"/></div><div className="training-feature-copy"><SectionLabel>LEARN BY DOING</SectionLabel><h2>Industrial <em>Training</em></h2><p>Our industrial training programs are designed to bridge the gap between academic learning and industry demands. Get hands-on experience with live projects and mentorship from seasoned professionals.</p><a className="text-link-lime" href={SOCIAL.email + "?subject=Industrial%20Training%20Inquiry"}>Enquire about training <ArrowUpRight size={16}/></a></div></article>
+      <article className="training-feature internship-feature"><div className="training-feature-copy"><SectionLabel>BUILD REAL-WORLD EXPERIENCE</SectionLabel><h2>Internship <em>Opportunities</em></h2><p>Kickstart your career with an Inventyk internship. Work on cutting-edge projects, contribute to real products, and learn from the best in the industry. We offer internships across various domains.</p><a className="text-link-lime" href={SOCIAL.email + "?subject=Internship%20Inquiry"}>Ask about internships <ArrowUpRight size={16}/></a></div><div className="internship-visual"><BriefcaseBusiness/><span>LEARN</span><i/><span>CONTRIBUTE</span><i/><span>GROW</span></div></article>
+    </section>
+    <CTA title="Ready to Advance Your Career?" text="Join our programs to acquire in-demand skills and open doors to exciting career paths in the tech industry." primary="Training Inquiries: Email Us" href={SOCIAL.email}/>
+  </>;
+}
+
+function AppShell() {
+  const location = useLocation();
+  useEffect(() => {
+    const titles = { "/":"Home | INVENTYK", "/services":"Services | Inventyk", "/pricing":"Pricing Plans | Inventyk", "/training":"Training & Internships | Inventyk" };
+    document.title = titles[location.pathname] || "INVENTYK | AI Powered Solution & Services";
+  }, [location.pathname]);
+  return <div className="app"><Header/><main><Routes><Route path="/" element={<Home/>}/><Route path="/services" element={<Services/>}/><Route path="/pricing" element={<Pricing/>}/><Route path="/training" element={<Training/>}/><Route path="*" element={<Home/>}/></Routes></main><Footer/></div>;
+}
+
+export default function App() {
+  return <BrowserRouter><ScrollToTop/><AppShell/></BrowserRouter>;
+}
