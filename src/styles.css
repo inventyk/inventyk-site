@@ -790,3 +790,175 @@ a:not(.button):not(.brand):hover{text-decoration-color:var(--brand-cyan)}
  .systems-node,.systems-link i,.learning-track-line i,.learning-stage, .learning-stage-progress i,.neural-wires .neural-signal,.neural-node,.neural-core,.neural-core>i,.pipeline-rail i,.pipeline-stage,.knowledge-doc,.knowledge-scanline,.workbench-module,.workbench-scan,.workbench-stats span{animation:none!important}
  .systems-node,.learning-stage-icon{transition:none!important}
 }
+
+
+/* GLOBAL READABILITY PASS — comfortable body copy and consistent page-wide type scale */
+body{font-size:16px;line-height:1.75}
+p{font-size:15px;line-height:1.85}
+li{line-height:1.7}
+
+/* Shared navigation, labels and actions */
+.top-strip{font-size:10px}
+.strip-right{font-size:10px}
+.brand small{font-size:9px}
+.main-nav{font-size:14px;gap:clamp(18px,2.2vw,32px)}
+.eyebrow,.section-label{font-size:10px;letter-spacing:.16em}
+.button{font-size:13px;padding:15px 19px}
+.hero-links{font-size:10px}
+.orbit-chip{font-size:11px}
+.hero-scroll{font-size:9px}
+.page-intro p{font-size:15px;line-height:1.9}
+
+/* Homepage copy, technology cards and testimonials */
+.hero-copy>p{font-size:16px;line-height:1.9}
+.intro-main>p,.section-heading>p,.ai-copy>p,.service-visual p,.training-feature-copy p{font-size:15px;line-height:1.9}
+.intro-highlights b{font-size:13px}
+.intro-highlights span{font-size:12px;line-height:1.7}
+.tech-item b{font-size:13px}
+.tech-item span{font-size:11px}
+.testimonial-card>p{font-size:14px;line-height:1.85}
+.testimonial-person b{font-size:12px}
+.testimonial-person span{font-size:11px}
+.cta-band p{font-size:14px;line-height:1.85}
+
+/* Service listings and reusable service cards */
+.service-row-body h3{font-size:17px}
+.service-row-body p{font-size:14px;line-height:1.85}
+.text-link-lime{font-size:13px}
+.extended-service-card h3{font-size:18px}
+.extended-service-card p{font-size:14px;line-height:1.85;min-height:90px}
+.extended-service-card li{font-size:13px;line-height:1.7}
+.extended-service-card .extended-service-top span{font-size:11px}
+.extended-service-top span{font-size:10px}
+.delivery-step b{font-size:13px}
+.delivery-step small{font-size:11px;line-height:1.5}
+.learn-track-card p{font-size:13px;line-height:1.8}
+.learn-track-card ul,.learn-track-card li{font-size:12px;line-height:1.7}
+.format-grid article>span{font-size:10px}
+.format-grid p{font-size:13px;line-height:1.8}
+.format-grid small{font-size:11px}
+.format-note{font-size:12px}
+.institution-copy>p{font-size:14px;line-height:1.85}
+.institution-options b{font-size:14px}
+.institution-options p{font-size:12px;line-height:1.7}
+
+/* AI solution diagrams and explanatory text */
+.ai-architecture-copy p{font-size:14px;line-height:1.8}
+.ai-flow-source b,.ai-flow-guard b,.ai-flow-output b{font-size:13px}
+.ai-flow-source span,.ai-flow-guard span,.ai-flow-output span,.ai-flow-core span{font-size:10px;line-height:1.5}
+.agent-crew-grid article span{font-size:10px}
+.agent-crew-grid article b{font-size:13px}
+.agent-crew-grid article small{font-size:10px}
+.ai-capability-card>span{font-size:9px}
+.ai-capability-card p{font-size:13px;line-height:1.8}
+.ai-capability-card small{font-size:10px}
+.topology-layers small{font-size:9px}
+.topology-layers b,.topology-layers span,.topology-middle strong{font-size:11px}
+.topology-footnote{font-size:11px;line-height:1.7}
+.governance-grid h3,.standards-grid h3{font-size:15px}
+.governance-grid p,.standards-grid p,.engagement-grid p{font-size:13px;line-height:1.8}
+.process-principle b{font-size:14px}
+.process-principle span{font-size:11px}
+.process-phase-marker span{font-size:11px}
+.process-phase-body>small{font-size:9px}
+.process-phase-body p{font-size:14px;line-height:1.8}
+.phase-deliverable b{font-size:9px}
+.phase-deliverable span{font-size:12px;line-height:1.65}
+.standards-grid article>span,.engagement-grid article>span{font-size:10px}
+.engagement-grid article>span{line-height:1.5}
+.engagement-grid small{font-size:10px}
+
+/* Resources, FAQ and browser tools */
+.resource-callout p{font-size:13px;line-height:1.8}
+.resource-meta span,.resource-meta small{font-size:9px}
+.resource-card h3{font-size:17px;line-height:1.4}
+.resource-card p{font-size:13px;line-height:1.8}
+.resource-card ul{font-size:12px;line-height:1.7}
+.resource-guide-links a{font-size:13px;line-height:1.65}
+.resource-read-more{font-size:12px}
+.tool-heading>span{font-size:9px}
+.tool-heading p{font-size:13px;line-height:1.8}
+.tool-panel label{font-size:12px}
+.tool-panel select,.tool-panel textarea{font:14px/1.6 'DM Sans',sans-serif}
+.scope-output>small,.recommendation-output>small{font-size:9px}
+.scope-output pre{font:11px/1.8 'DM Mono',monospace}
+.scope-output .button{font-size:12px}
+.recommendation-output>div span{font-size:9px}
+.recommendation-output>div b{font-size:12px}
+.recommendation-output>p{font-size:13px;line-height:1.8}
+.tool-footnote,.tool-disclaimer{font-size:11px;line-height:1.7}
+.faq-item summary{font-size:14px;line-height:1.55}
+.faq-item>p{font-size:13px;line-height:1.85}
+
+/* Page-specific illustration captions: keep technical labels legible, without competing with content */
+.page-visual-copy>p{font-size:15px;line-height:1.85}
+.blueprint-toolbar>b,.blueprint-toolbar>small,.blueprint-footer{font-size:9px}
+.systems-node-index{font-size:9px}
+.systems-node>b{font-size:12px}
+.systems-node>small{font-size:10px;line-height:1.5}
+.learning-track-head,.learning-track-foot{font-size:9px}
+.learning-track-head small{font-size:9px}
+.learning-stage>small{font-size:9px;letter-spacing:.04em}
+.learning-stage>b{font-size:13px}
+.learning-stage>span{font-size:11px;line-height:1.6;min-height:34px}
+.learning-track-note{font-size:9px}
+.neural-board-head,.neural-board-foot{font-size:9px}
+.neural-node>span{font-size:8px}
+.neural-node>b{font-size:10px;line-height:1.35}
+.neural-core>b{font-size:11px}
+.neural-core>small{font-size:8px}
+.neural-legend span{font-size:9px}
+.pipeline-board-top,.pipeline-foot{font-size:9px}
+.pipeline-board-top small{font-size:9px}
+.pipeline-marker span{font-size:10px}
+.pipeline-stage>b{font-size:12px}
+.pipeline-stage>small{font-size:10px;line-height:1.55;min-height:32px}
+.pipeline-complete{font-size:7px}
+.knowledge-board-header,.knowledge-tags{font-size:9px}
+.knowledge-doc-top{font-size:8px}
+.knowledge-doc h3{font-size:15px}
+.knowledge-doc>small{font-size:8px}
+.workbench-top>b{font-size:9px}
+.workbench-top>small{font-size:8px}
+.workbench-sidebar>span,.workbench-sidebar>small{font-size:7px}
+.workbench-title>span{font-size:8px}
+.workbench-title>b{font-size:15px}
+.workbench-module>b{font-size:10px}
+.workbench-module>small{font-size:8px}
+.workbench-stats small{font-size:8px}
+.workbench-stats b{font-size:9px}
+.learning-path-note{font-size:9px}
+
+/* Footer and minor metadata */
+.footer-brand>p{font-size:13px;line-height:1.8}
+.footer-col{font-size:13px;line-height:1.7}
+.footer-col>b{font-size:13px}
+.footer-bottom{font-size:9px}
+
+/* Mobile: retain the same readable scale instead of shrinking secondary copy */
+@media(max-width:720px){
+  body{font-size:15.5px}
+  p{font-size:15px}
+  .main-nav{font-size:14px}
+  .hero-copy>p{font-size:15px}
+  .page-intro p{font-size:15px}
+  .service-row-body p{font-size:13px}
+  .course-card p{font-size:13px}
+  .footer-col{font-size:12px}
+  .extended-service-card p{font-size:14px;min-height:0}
+  .extended-service-card li{font-size:12px}
+  .learning-stage>small{font-size:8px}
+  .learning-stage>span{font-size:10px;min-height:32px}
+  .learning-stage>b{font-size:12px}
+  .systems-node>b{font-size:11px}
+  .systems-node>small{font-size:9px}
+  .neural-node>b{font-size:9px}
+  .pipeline-stage>b{font-size:10px}
+  .pipeline-stage>small{font-size:9px;min-height:36px}
+  .workbench-module>b{font-size:9px}
+  .workbench-module>small{font-size:7px}
+  .workbench-title>b{font-size:14px}
+  .resource-card p{font-size:13px}
+  .faq-item summary{font-size:14px}
+  .faq-item>p{font-size:13px}
+}
