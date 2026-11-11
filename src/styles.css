@@ -47,3 +47,6 @@
 @media(prefers-reduced-motion:reduce){
   .hero-ring,.orbit-path,.orbit-path .orbit-chip{animation:none!important}
 }
+
+/* Counter-rotate chips on reverse orbit tracks so they stay upright. */
+.orbit-path-two .orbit-chip,.orbit-path-four .orbit-chip{animation-direction:normal}
