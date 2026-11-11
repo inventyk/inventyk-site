@@ -101,11 +101,13 @@ function Home() {
       </div>
       <div className="hero-art" aria-label="Inventyk technology illustration">
         <div className="hero-ring ring-a"/><div className="hero-ring ring-b"/><div className="hero-ring ring-c"/>
-        <div className="hero-orb"><div className="orb-symbol">I<span>.</span></div><div className="orb-caption">INVENTYK</div></div>
-        <div className="orbit-chip chip-one"><Bot/><span>AI Solutions</span></div>
-        <div className="orbit-chip chip-two"><Workflow/><span>Integration</span></div>
-        <div className="orbit-chip chip-three"><Code2/><span>Development</span></div>
-        <div className="orbit-chip chip-four"><GraduationCap/><span>Tech Training</span></div>
+        <div className="hero-orb">
+          <img className="orb-logo" src={OLD + "/icons/inventyk-logo.svg"} alt="INVENTYK logo" />
+        </div>
+        <div className="orbit-path orbit-path-one"><div className="orbit-chip"><Bot/><span>AI Solutions</span></div></div>
+        <div className="orbit-path orbit-path-two"><div className="orbit-chip"><Workflow/><span>Integration</span></div></div>
+        <div className="orbit-path orbit-path-three"><div className="orbit-chip"><Code2/><span>Development</span></div></div>
+        <div className="orbit-path orbit-path-four"><div className="orbit-chip"><GraduationCap/><span>Tech Training</span></div></div>
       </div>
       <div className="hero-scroll">SCROLL TO EXPLORE <span>↓</span></div>
     </section>

@@ -3,3 +3,47 @@
 @media(max-width:1000px){.pricing-grid{grid-template-columns:repeat(2,1fr);gap:18px}.pricing-card{padding:27px}.services-overview{gap:35px}.technology-section{gap:40px}.hero-art{transform:scale(.9)}}
 @media(max-width:720px){.top-strip{font-size:7px}.strip-right{display:none}.header{height:72px;padding:0 20px}.brand img{width:38px;height:38px}.menu-button{display:block}.main-nav{display:none;position:absolute;top:72px;left:0;right:0;background:#0d141d;border-bottom:1px solid var(--line);padding:16px 22px 22px;flex-direction:column;align-items:stretch;gap:0}.main-nav.nav-open{display:flex}.main-nav>a{padding:14px 4px}.main-nav a.active:after{display:none}.nav-contact{justify-content:space-between;margin-top:8px}.hero{grid-template-columns:1fr;padding:65px 23px 50px;min-height:0}.hero h1{font-size:62px}.hero-copy>p{font-size:13px}.hero-art{height:350px;transform:scale(.82);margin:0 -35px}.hero-scroll{left:24px;bottom:15px}.section-wrap{padding-left:23px;padding-right:23px}.home-intro{padding-top:80px;padding-bottom:85px;grid-template-columns:1fr;gap:25px}.intro-side{gap:15px}.large-index{font-size:50px}.intro-highlights{grid-template-columns:1fr;gap:18px}.intro-highlights div{display:grid;grid-template-columns:25px 1fr;align-items:center}.intro-highlights div span{grid-column:2}.technology-section{padding-top:80px;padding-bottom:85px;grid-template-columns:1fr;gap:35px}.tech-grid{grid-template-columns:1fr 1fr}.testimonials{padding-top:80px;padding-bottom:85px}.testimonial-grid{grid-template-columns:1fr}.testimonial-card{min-height:0}.cta-band{padding:45px 23px;flex-direction:column;align-items:start;gap:26px}.cta-actions{width:100%}.cta-actions .button{flex:1}.page-intro{padding:75px 23px 65px}.services-overview{padding-top:75px;padding-bottom:80px;grid-template-columns:1fr;gap:30px}.services-overview .section-heading{position:static}.service-row{grid-template-columns:25px 38px 1fr;gap:11px}.service-row-icon{width:36px;height:36px}.service-row-arrow{display:none}.ai-development{padding-top:70px;padding-bottom:75px;grid-template-columns:1fr;gap:35px}.service-image-card img{max-height:320px}.service-visual{padding-bottom:80px;grid-template-columns:1fr;gap:30px}.service-visual img{order:2}.pricing-section{padding-top:50px;padding-bottom:75px}.pricing-grid{grid-template-columns:1fr}.pricing-card{padding:25px}.plan-price{font-size:34px}.courses-section{padding-top:75px;padding-bottom:70px}.course-grid{grid-template-columns:1fr}.course-card{min-height:0}.training-programs{padding-top:15px;padding-bottom:75px}.training-feature{grid-template-columns:1fr;gap:27px;padding:25px 0 40px}.training-feature-image img{max-height:300px}.training-feature-copy h2{font-size:34px}.internship-feature .training-feature-copy{order:1}.internship-visual{order:2}.footer{padding:40px 23px 18px}.footer-main{grid-template-columns:1fr 1fr;gap:35px 20px}.footer-brand{grid-column:span 2}.footer-bottom{gap:15px;flex-direction:column}.footer-bottom span:last-child{font-size:7px}}
 @media(max-width:390px){.hero h1{font-size:54px}.hero-art{transform:scale(.72);margin:0 -50px}.hero-actions{flex-direction:column;align-items:stretch}.hero-actions .button{justify-content:space-between}.tech-grid{grid-template-columns:1fr}.cta-actions{flex-direction:column}.footer-main{grid-template-columns:1fr}.footer-brand{grid-column:span 1}}
+
+
+/* INVENTYK hero: branded planet with independently orbiting feature satellites */
+.hero-art{isolation:isolate}
+.hero-ring{z-index:0;pointer-events:none;animation:ring-drift 52s linear infinite}
+.ring-b{animation-duration:68s;animation-direction:reverse}
+.ring-c{animation-duration:86s}
+.hero-orb{z-index:2}
+.orb-logo{display:block;width:112px;height:112px;object-fit:contain;border-radius:50%;mix-blend-mode:screen;filter:drop-shadow(0 0 16px #baf36b24)}
+.orbit-path{position:absolute;top:50%;left:50%;width:var(--orbit-size,380px);aspect-ratio:1;translate:-50% -50%;border:1px solid rgba(165,186,210,.15);border-radius:50%;transform-origin:center;animation:orbit-spin var(--orbit-duration,28s) linear infinite var(--orbit-direction,normal);pointer-events:none;z-index:3}
+.orbit-path-one{--orbit-size:360px;--orbit-duration:23s;--orbit-direction:normal}
+.orbit-path-two{--orbit-size:430px;--orbit-duration:31s;--orbit-direction:reverse}
+.orbit-path-three{--orbit-size:400px;--orbit-duration:27s;--orbit-direction:normal}
+.orbit-path-four{--orbit-size:320px;--orbit-duration:20s;--orbit-direction:reverse}
+.orbit-path .orbit-chip{position:absolute;top:50%;left:100%;translate:-50% -50%;white-space:nowrap;animation:orbit-counter var(--orbit-duration,28s) linear infinite var(--orbit-direction,normal);will-change:transform}
+.orbit-path-two .orbit-chip,.orbit-path-four .orbit-chip{animation-name:orbit-counter-reverse}
+@keyframes orbit-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes orbit-counter{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+@keyframes orbit-counter-reverse{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes ring-drift{from{rotate:0deg}to{rotate:360deg}}
+@media(max-width:1000px){
+  .orbit-path-one{--orbit-size:330px}
+  .orbit-path-two{--orbit-size:390px}
+  .orbit-path-three{--orbit-size:360px}
+  .orbit-path-four{--orbit-size:300px}
+}
+@media(max-width:720px){
+  .orb-logo{width:92px;height:92px}
+  .orbit-path-one{--orbit-size:270px}
+  .orbit-path-two{--orbit-size:330px}
+  .orbit-path-three{--orbit-size:305px}
+  .orbit-path-four{--orbit-size:245px}
+  .orbit-path .orbit-chip{padding:8px 10px;gap:7px;font-size:9px}
+  .orbit-path .orbit-chip svg{width:14px;height:14px}
+}
+@media(max-width:390px){
+  .orbit-path-one{--orbit-size:245px}
+  .orbit-path-two{--orbit-size:300px}
+  .orbit-path-three{--orbit-size:275px}
+  .orbit-path-four{--orbit-size:225px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-ring,.orbit-path,.orbit-path .orbit-chip{animation:none!important}
+}
