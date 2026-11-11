@@ -61,7 +61,7 @@ function CTA2({ title, text, primary = "Let's Talk" }) {
 
 
 export function OrbitExperience({ eyebrow, title, description, variant = "ecosystem" }) {
-  return <section className={\`orbit-experience-section section-wrap orbit-experience-\${variant}\`}>
+  return <section className={"orbit-experience-section section-wrap orbit-experience-" + variant}>
     <div className="orbit-experience-copy">
       <SectionLabel2>{eyebrow}</SectionLabel2>
       <h2>{title}</h2>
