@@ -58,6 +58,48 @@ function CTA2({ title, text, primary = "Let's Talk" }) {
   return <section className="cta-band"><div><SectionLabel2>LET'S BUILD SOMETHING MEANINGFUL</SectionLabel2><h2>{title}</h2><p>{text}</p></div><div className="cta-actions"><a className="button button-lime" href={EMAIL}>{primary}<ArrowUpRight size={18}/></a></div></section>;
 }
 
+
+
+export function OrbitExperience({ eyebrow, title, description, variant = "ecosystem" }) {
+  return <section className={\`orbit-experience-section section-wrap orbit-experience-\${variant}\`}>
+    <div className="orbit-experience-copy">
+      <SectionLabel2>{eyebrow}</SectionLabel2>
+      <h2>{title}</h2>
+      <p>{description}</p>
+      <div className="orbit-experience-status"><span/><b>CONNECTED BY DESIGN</b><small>AI · SOFTWARE · CLOUD · LEARNING</small></div>
+    </div>
+    <div className="orbit-experience-art" aria-hidden="true">
+      <div className="orbit-art-grid"/>
+      <div className="orbit-art-glow"/>
+      <i className="orbit-star orbit-star-a"/>
+      <i className="orbit-star orbit-star-b"/>
+      <i className="orbit-star orbit-star-c"/>
+      <i className="orbit-star orbit-star-d"/>
+      <i className="orbit-star orbit-star-e"/>
+      <div className="orbit-art-ring orbit-art-ring-outer"/>
+      <div className="orbit-art-ring orbit-art-ring-middle"/>
+      <div className="orbit-art-ring orbit-art-ring-inner"/>
+      <div className="orbit-track orbit-track-one">
+        <div className="orbit-satellite orbit-satellite-top"><span className="orbit-satellite-chip"><Bot/><b>AI Agents</b></span></div>
+        <div className="orbit-satellite orbit-satellite-bottom"><span className="orbit-satellite-chip"><Cloud/><b>Cloud</b></span></div>
+      </div>
+      <div className="orbit-track orbit-track-two">
+        <div className="orbit-satellite orbit-satellite-top"><span className="orbit-satellite-chip"><Code2/><b>Software</b></span></div>
+        <div className="orbit-satellite orbit-satellite-bottom"><span className="orbit-satellite-chip"><GraduationCap/><b>Learning</b></span></div>
+      </div>
+      <div className="orbit-center-halo"/>
+      <div className="orbit-center-planet">
+        <div className="orbit-planet-shine"/>
+        <BrainCircuit className="orbit-center-icon"/>
+        <b>INVENTYK</b>
+        <small>INTELLIGENT SYSTEMS</small>
+      </div>
+      <div className="orbit-art-caption orbit-art-caption-left">SYSTEM / 01</div>
+      <div className="orbit-art-caption orbit-art-caption-right"><span/> LIVE ECOSYSTEM</div>
+    </div>
+  </section>;
+}
+
 export function DeliveryPreview() {
   const steps = [["01","Discover","Requirements & scope"],["02","Design","Architecture & data"],["03","Build","Milestone sprints"],["04","Verify","Quality & security"],["05","Launch","Release & support"]];
   return <section className="delivery-preview section-wrap">
@@ -137,6 +179,7 @@ export function AISolutions() {
         <div className="ai-flow-output"><b>Verified Outcomes</b><span>Actions · Insights · Records</span></div>
       </div>
     </section>
+    <OrbitExperience variant="intelligence" eyebrow="THE INTELLIGENCE ORBIT" title={<>A smarter system.<br/><em>Every part connected.</em></>} description="Models, trusted knowledge, tools, evaluation and human review combine to turn AI capability into dependable workflows." />
     <section className="agent-crew section-wrap">
       <div className="section-heading"><SectionLabel2>THE AGENT ENGINE</SectionLabel2><h2>Specialists working<br/><em>as one workflow.</em></h2><p>Agent roles can divide planning, implementation and verification into smaller tasks, with a human approval gate before release.</p></div>
       <div className="agent-crew-grid">{[["01","Sprint Planner","Requirements & task planning"],["02","Code Synthesizer","Implementation support"],["03","RAG Sentinel","Knowledge grounding"],["04","QA Sentinel","Testing & quality checks"],["05","Cloud Gatekeeper","Release & deployment checks"]].map(([n,t,d])=><article key={n}><span>{n}</span><b>{t}</b><small>{d}</small></article>)}</div>
@@ -198,6 +241,7 @@ export function Process() {
       <div className="process-principle"><ShieldCheck/><b>Quality Gates</b><span>Testing, security and performance checks.</span></div>
       <div className="process-principle"><FileText/><b>Clear Handover</b><span>Documentation and agreed ownership terms.</span></div>
     </section>
+    <OrbitExperience variant="process" eyebrow="THE DELIVERY ORBIT" title={<>Five stages.<br/><em>One continuous loop.</em></>} description="Discovery, design, build, verification and launch stay connected through feedback, review and measurable milestones." />
     <section className="process-timeline section-wrap">
       <div className="section-heading"><SectionLabel2>FIVE-STAGE DELIVERY</SectionLabel2><h2>Engineering that stays<br/><em>visible at every step.</em></h2></div>
       <div className="process-phase-list">{deliveryPhases.map(p=><article className="process-phase" key={p.n}><div className="process-phase-marker"><span>{p.n}</span><i/></div><div className="process-phase-body"><small>{p.when}</small><h3>{p.title}</h3><p>{p.text}</p><div className="phase-deliverable"><b>Key deliverable</b><span>{p.deliverable}</span></div></div></article>)}</div>
@@ -230,6 +274,7 @@ export function Resources() {
       <div className="section-heading"><SectionLabel2>KNOWLEDGE BASE</SectionLabel2><h2>Understand the trade-offs<br/><em>before you build.</em></h2><p>Good engineering decisions begin with clear questions. Use these guides as starting points for planning and evaluating your next technical step.</p></div>
       <div className="resource-callout"><BookOpen/><b>Learn by exploring</b><p>Read a guide, identify the decisions that apply to your context and turn them into a short technical checklist.</p></div>
     </section>
+    <OrbitExperience variant="knowledge" eyebrow="IDEAS IN ORBIT" title={<>Explore across<br/><em>connected disciplines.</em></>} description="Software engineering, AI architecture, data systems and learning are different fields with useful connections between them." />
     <section className="resource-grid section-wrap">{resourceArticles.map(a=><article className="resource-card" key={a.title}><div className="resource-meta"><span>{a.category}</span><small>{a.read}</small></div><h3>{a.title}</h3><p>{a.text}</p><ul>{a.points.map(x=><li key={x}>{x}</li>)}</ul><a className="resource-read-more" href={a.href}>Read full guide <ArrowUpRight size={15}/></a></article>)}</section>
     <section className="resource-guides section-wrap">
       <div><SectionLabel2>MORE LEARNING PATHS</SectionLabel2><h2>Build a stronger<br/><em>technical foundation.</em></h2></div>
@@ -255,6 +300,7 @@ export function Tools() {
   const handleCopy=()=>{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(brief).then(()=>setCopied(true)).catch(()=>setCopied(false));}};
   return <>
     <PageIntro2 eyebrow="ENGINEERING UTILITIES" title="Plan the next step with clarity." description="Lightweight planning tools to help frame a software brief, compare technology directions and think through architecture trade-offs. Recommendations are starting points, not substitutes for technical discovery."/>
+    <OrbitExperience variant="planning" eyebrow="PLAN · CONNECT · BUILD" title={<>Bring the moving parts<br/><em>into alignment.</em></>} description="A clearer brief, a considered technology stack and a thoughtful architecture help turn an early idea into a practical plan." />
     <section className="tools-layout section-wrap">
       <article className="tool-panel"><div className="tool-heading"><span>TOOL 01</span><ClipboardList/><h2>Project Scope Starter</h2><p>Turn an early idea into a structured brief you can discuss with a development team.</p></div>
         <label>What are you building?<select value={projectType} onChange={e=>setProjectType(e.target.value)}><option>Business web application</option><option>Marketing website</option><option>Mobile application</option><option>E-commerce platform</option><option>AI-powered workflow</option><option>Internal operations tool</option></select></label>

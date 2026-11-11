@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { AISolutions, Process, Resources, Tools, ExtendedServices, TrainingExpansion, DeliveryPreview, FAQSection2, siteFaqs } from "./ExtendedPages";
+import { AISolutions, Process, Resources, Tools, ExtendedServices, TrainingExpansion, DeliveryPreview, OrbitExperience, FAQSection2, siteFaqs } from "./ExtendedPages";
 import { BrowserRouter, Routes, Route, NavLink, Link, Navigate, useLocation } from "react-router-dom";
 import {
   ArrowUpRight, Menu, X, Bot, Cloud, Database, Code2, Workflow, Sparkles,
@@ -123,6 +123,7 @@ function Home() {
       <div className="tech-grid">{tech.map(([name, desc, img])=><div className="tech-item" key={name}><div className="tech-logo"><img src={OLD + img} alt={name + " logo"} /></div><div><b>{name}</b><span>{desc}</span></div><ArrowUpRight className="tech-arrow"/></div>)}</div>
     </section>
 
+    <OrbitExperience variant="ecosystem" eyebrow="THE INVENTYK ECOSYSTEM" title={<>One connected orbit.<br/><em>Infinite possibilities.</em></>} description="AI, software, cloud and learning work better when every capability connects. Explore how our technology ecosystem brings the moving parts together." />
     <section className="testimonials section-wrap">
       <div className="section-heading"><SectionLabel>CLIENT FEEDBACK</SectionLabel><h2>What Our <em>Clients Say</em></h2><p>Hear from businesses who have partnered with Inventyk and experienced transformative results.</p></div>
       <div className="testimonial-grid">{testimonials.map(t=><article className="testimonial-card" key={t.name}><Quote className="quote-icon"/><p>“{t.quote}”</p><div className="testimonial-person">{t.image ? <img src={t.image} alt={"Avatar of " + t.name}/> : <div className="avatar-placeholder">{t.name.split(" ").map(x=>x[0]).join("")}</div>}<div><b>{t.name}</b><span>{t.role}</span></div></div></article>)}</div>
@@ -151,6 +152,7 @@ function Services() {
       <div className="service-image-card"><img src={OLD + "/_next/image?url=%2Fimages%2Fservices.png&w=1200&q=75"} alt="AI-Assisted Development"/><span>AI-ASSISTED WEB & MOBILE DEVELOPMENT</span></div>
     </section>
     <section className="service-visual section-wrap"><img src={OLD + "/_next/image?url=%2Fimages%2Fservices2.png&w=1200&q=75"} alt="Core Services Overview"/><div><SectionLabel>BUILT AROUND YOUR REQUIREMENTS</SectionLabel><h2>Technology that works<br/><em>for your business.</em></h2><p>Partner with us to leverage our expertise and drive your business forward with cutting-edge technology solutions.</p></div></section>
+    <OrbitExperience variant="delivery" eyebrow="CONNECTED ENGINEERING" title={<>Every layer works<br/><em>in sync.</em></>} description="From interface and backend to integrations, cloud and quality, each part of a digital product is designed to work as one system." />
     <ExtendedServices/>
     <FAQSection2 title="Software development questions, answered." items={siteFaqs.services}/>
     <CTA title="Have a Project in Mind?" text="Let's discuss your requirements and how our expertise can bring your vision to life." primary="Discuss Your Project"/>
@@ -173,6 +175,7 @@ function Training() {
       <div className="section-heading"><SectionLabel>LEARN WITH INVENTYK</SectionLabel><h2>Our Core <em>Courses</em></h2><p>Explore our core technology courses and build practical skills across programming, software development and mobile application development.</p></div>
       <div className="course-grid">{courses.map((c,i)=><article className="course-card" key={c.title}><div className="course-top"><span>0{i+1}</span><c.icon/></div><h3>{c.title}</h3><p>{c.desc}</p><a href={SOCIAL.email + "?subject=" + encodeURIComponent("Training Inquiry: " + c.title)}>Course inquiry <ArrowUpRight size={15}/></a></article>)}</div>
     </section>
+    <OrbitExperience variant="learning" eyebrow="A LEARNING UNIVERSE" title={<>Skills connect.<br/><em>Ideas take flight.</em></>} description="Programming, problem-solving, product thinking and mentorship orbit around one goal: practical capability you can put to work." />
     <section className="training-programs section-wrap">
       <article className="training-feature"><div className="training-feature-image"><img src={OLD + "/_next/image?url=%2Fimages%2Ftraining.png&w=1200&q=75"} alt="Industrial Training & Internship"/></div><div className="training-feature-copy"><SectionLabel>LEARN BY DOING</SectionLabel><h2>Industrial <em>Training</em></h2><p>Our industrial training programs are designed to bridge the gap between academic learning and industry demands. Get hands-on experience with live projects and mentorship from seasoned professionals.</p><a className="text-link-lime" href={SOCIAL.email + "?subject=Industrial%20Training%20Inquiry"}>Enquire about training <ArrowUpRight size={16}/></a></div></article>
       <article className="training-feature internship-feature"><div className="training-feature-copy"><SectionLabel>BUILD REAL-WORLD EXPERIENCE</SectionLabel><h2>Internship <em>Opportunities</em></h2><p>Kickstart your career with an Inventyk internship. Work on cutting-edge projects, contribute to real products, and learn from the best in the industry. We offer internships across various domains.</p><a className="text-link-lime" href={SOCIAL.email + "?subject=Internship%20Inquiry"}>Ask about internships <ArrowUpRight size={16}/></a></div><div className="internship-visual"><BriefcaseBusiness/><span>LEARN</span><i/><span>CONTRIBUTE</span><i/><span>GROW</span></div></article>
